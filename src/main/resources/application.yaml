@@ -1,0 +1,9 @@
+spring:
+    jmx: 
+        enabled: false
+
+javafx:
+    title: 我的javaFx工具集合
+    appicons: /images/icon.jpg
+    stage:
+        resizable: true
