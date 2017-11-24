@@ -11,6 +11,7 @@ import com.xwintop.xJavaFxTool.services.epmsTools.XmlToBeanService;
 import com.xwintop.xJavaFxTool.services.epmsTools.XmlToCodeService;
 import com.xwintop.xJavaFxTool.services.epmsTools.XmlToSqlService;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+@FXMLController
 public class GeneratingCodeController extends AnchorPane implements Initializable {
 	@FXML
 	private TextField textField1;

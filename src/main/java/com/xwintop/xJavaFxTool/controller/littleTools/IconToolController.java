@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringUtils;
 
 import com.xwintop.xJavaFxTool.services.littleTools.IconToolService;
@@ -35,6 +36,7 @@ import net.coobird.thumbnailator.geometry.Positions;
  */
 @Getter
 @Setter
+@FXMLController
 public class IconToolController extends IconToolView {
 	private IconToolService iconToolService = new IconToolService(this);
 	private String[] iconSizeStrings = new String[] { "16*16", "20*20", "28*28", "29*29", "32*32", "36*36", "40*40",

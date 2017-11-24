@@ -8,6 +8,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -23,6 +24,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@FXMLController
 public class PdfConvertToolController extends PdfConvertToolView {
 	private PdfConvertToolService pdfConvertToolService = new PdfConvertToolService(this);
 	private String[] imageDpiComboBoxStrings = new String[] { "默认比例1024","320", "640", "800", "1024","1280","1600","2048","2272","2560" };

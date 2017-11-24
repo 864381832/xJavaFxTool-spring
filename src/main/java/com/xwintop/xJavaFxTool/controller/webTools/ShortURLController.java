@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringUtils;
 
 import com.xwintop.xJavaFxTool.services.webTools.ShortURLService;
@@ -20,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
+@FXMLController
 public class ShortURLController extends ShortURLView {
 
 	private String[] shortURLService = new String[] { "百度", "新浪","缩我" };

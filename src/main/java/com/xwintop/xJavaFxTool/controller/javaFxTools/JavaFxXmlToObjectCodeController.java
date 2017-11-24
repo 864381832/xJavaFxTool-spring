@@ -5,11 +5,13 @@ import java.util.ResourceBundle;
 
 import com.xwintop.xJavaFxTool.services.javaFxTools.JavaFxXmlToObjectCodeService;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 
+@FXMLController
 public class JavaFxXmlToObjectCodeController implements Initializable {
 	@FXML
 	private TextArea textArea1;

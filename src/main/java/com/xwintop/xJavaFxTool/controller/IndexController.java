@@ -9,6 +9,7 @@ import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xJavaFxTool.view.IndexView;
 import com.xwintop.xcore.util.javafx.AlertUtil;
 
+import de.felixroske.jfxsupport.AbstractFxmlView;
 import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -113,13 +114,20 @@ public class IndexController extends IndexView {
 			}
 			if ("Node".equals(toolConfig.getControllerType())) {
 				menuItem.setOnAction((ActionEvent event) -> {
-					addContent(menuItem.getText(), toolConfig.getUrl(), toolConfig.getResourceBundleName(),
-							toolConfig.getIconPath());
-//					addContent(menuItem.getText(), toolConfig.getIconPath());
+					if(StringUtils.isNotEmpty(toolConfig.getUrl())){
+						addContent(menuItem.getText(), toolConfig.getUrl(), toolConfig.getResourceBundleName(),
+								toolConfig.getIconPath());
+					}else{
+						addContent(menuItem.getText(),toolConfig.getClassName(), toolConfig.getIconPath());
+					}
 				});
 				if (toolConfig.getIsDefaultShow()) {
-					addContent(menuItem.getText(), toolConfig.getUrl(), toolConfig.getResourceBundleName(),
-							toolConfig.getIconPath());
+					if(StringUtils.isNotEmpty(toolConfig.getUrl())){
+						addContent(menuItem.getText(), toolConfig.getUrl(), toolConfig.getResourceBundleName(),
+								toolConfig.getIconPath());
+					}else{
+						addContent(menuItem.getText(),toolConfig.getClassName(), toolConfig.getIconPath());
+					}
 				}
 			} else if ("WebView".equals(toolConfig.getControllerType())) {
 				menuItem.setOnAction((ActionEvent event) -> {
@@ -186,12 +194,19 @@ public class IndexController extends IndexView {
 	 * @Title: addContent
 	 * @Description: 添加Content内容
 	 */
-	private void addContent(String title, String iconPath) {
+	private void addContent(String title,String className, String iconPath) {
 		Tab tab = new Tab(title);
 //		FileCopyView fileCopyView = new FileCopyView();
-		FileCopyView fileCopyView = SpringUtil.getBean(FileCopyView.class);
-		System.out.println(fileCopyView);
-		tab.setContent(fileCopyView.getView());
+		try {
+			Class<AbstractFxmlView> viewClass = (Class<AbstractFxmlView>) ClassLoader.getSystemClassLoader().loadClass(className);
+			AbstractFxmlView fxmlView = SpringUtil.getBean(viewClass);
+			tab.setContent(fxmlView.getView());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+//		FileCopyView fileCopyView = SpringUtil.getBean(FileCopyView.class);
+//		System.out.println(fileCopyView);
+//		tab.setContent(fileCopyView.getView());
 		if (StringUtils.isNotEmpty(iconPath)) {
 			ImageView imageView = new ImageView(new Image(iconPath));
 			imageView.setFitHeight(18);

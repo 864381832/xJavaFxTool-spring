@@ -9,6 +9,7 @@ import com.xwintop.xcore.util.RedisUtil;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class RedisToolDataTableController extends RedisToolDataTableView {
 	private RedisToolDataTableService redisToolDataTableService = new RedisToolDataTableService(this);
 	private RedisToolController redisToolController;
@@ -30,11 +32,11 @@ public class RedisToolDataTableController extends RedisToolDataTableView {
 	private RedisUtil redisUtil;
 	private ObservableList<RedisToolDataTableBean> tableData = FXCollections.observableArrayList();
 
-	public static FXMLLoader getFXMLLoader() {
-		FXMLLoader fXMLLoader = new FXMLLoader(
-				IndexController.class.getResource("/fxml/debugTools/redisTool/RedisToolDataTable.fxml"));
-		return fXMLLoader;
-	}
+//	public static FXMLLoader getFXMLLoader() {
+//		FXMLLoader fXMLLoader = new FXMLLoader(
+//				IndexController.class.getResource("/fxml/debugTools/redisTool/RedisToolDataTable.fxml"));
+//		return fXMLLoader;
+//	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

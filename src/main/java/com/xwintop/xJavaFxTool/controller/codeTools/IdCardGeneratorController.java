@@ -5,11 +5,13 @@ import java.awt.datatransfer.StringSelection;
 
 import com.xwintop.xJavaFxTool.services.codeTools.IdCardGenerator;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+@FXMLController
 public class IdCardGeneratorController {
     @FXML
     private Button generator;

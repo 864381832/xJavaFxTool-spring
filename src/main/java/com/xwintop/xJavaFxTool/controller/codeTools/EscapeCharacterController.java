@@ -3,6 +3,7 @@ package com.xwintop.xJavaFxTool.controller.codeTools;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringEscapeUtils;
 
 import com.xwintop.xJavaFxTool.view.codeTools.EscapeCharacterView;
@@ -18,6 +19,7 @@ import javafx.fxml.FXML;
  * @author: xufeng
  * @date: 2017年8月17日 下午9:55:25  
  */
+@FXMLController
 public class EscapeCharacterController extends EscapeCharacterView {
 	/**
 	 * 字符类型.

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.codec.binary.Base32;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.BinaryCodec;
@@ -24,6 +25,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
+@FXMLController
 public class EncryptAndDecryptController implements Initializable {
 	@FXML
 	private AnchorPane mainAnchorPane;

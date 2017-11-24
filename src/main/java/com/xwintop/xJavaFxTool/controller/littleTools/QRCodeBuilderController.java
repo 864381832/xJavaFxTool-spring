@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringUtils;
 
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
@@ -35,6 +36,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
+@FXMLController
 public class QRCodeBuilderController extends QRCodeBuilderView{
 
 	@Override

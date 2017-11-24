@@ -11,6 +11,7 @@ import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.developTools.DirectoryTreeToolView;
 import com.xwintop.xcore.util.javafx.FileChooserUtil;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -33,6 +34,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class DirectoryTreeToolController extends DirectoryTreeToolView {
     private DirectoryTreeToolService directoryTreeToolService = new DirectoryTreeToolService(this);
     private ObservableList<Map<String, String>> tableData = FXCollections.observableArrayList();

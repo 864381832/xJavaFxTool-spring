@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.xwintop.xJavaFxTool.services.littleTools.ZHConverterService;
 import com.xwintop.xJavaFxTool.view.littleTools.ZHConverterView;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -15,6 +16,7 @@ import javafx.fxml.FXML;
  * @author: xufeng
  * @date: 2017年8月20日 下午1:13:45  
  */
+@FXMLController
 public class ZHConverterController extends ZHConverterView {
 	private ZHConverterService zhConverterService = new ZHConverterService();
 	private String[] codeTypes = new String[] { "拼音", "简-繁", "简体-臺灣正體", "简体-香港繁體", "繁體-臺灣正體", "繁體-香港繁體", "香港繁體-臺灣正體", "数字金额-大写金额"};

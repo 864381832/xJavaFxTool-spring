@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.reflect.FieldUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
@@ -32,6 +33,7 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
+@FXMLController
 public class CronExpBuilderController extends CronExpBuilderView {
 	private CheckBox[] secondCheckBox = new CheckBox[60];
 	private CheckBox[] minuteCheckBox = new CheckBox[60];

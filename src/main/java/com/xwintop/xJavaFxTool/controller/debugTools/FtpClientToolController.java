@@ -10,6 +10,7 @@ import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.debugTools.FtpClientToolView;
 import com.xwintop.xcore.util.javafx.FileChooserUtil;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -37,6 +38,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class FtpClientToolController extends FtpClientToolView {
 	private FtpClientToolService ftpClientToolService = new FtpClientToolService(this);
 	private ObservableList<FtpClientToolTableBean> tableData = FXCollections.observableArrayList();

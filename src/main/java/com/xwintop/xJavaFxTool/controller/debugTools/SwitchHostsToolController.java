@@ -6,6 +6,7 @@ import com.xwintop.xJavaFxTool.view.debugTools.SwitchHostsToolView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TreeItem;
@@ -16,6 +17,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class SwitchHostsToolController extends SwitchHostsToolView {
 
     private SwitchHostsToolService switchHostsToolService = new SwitchHostsToolService(this);

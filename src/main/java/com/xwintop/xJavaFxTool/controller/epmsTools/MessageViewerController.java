@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.xwintop.xcore.util.javafx.FileChooserUtil;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
+@FXMLController
 public class MessageViewerController implements Initializable {
 	@FXML
 	private TreeView<String> treeViewMessageStructure;

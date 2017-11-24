@@ -3,6 +3,7 @@ package com.xwintop.xJavaFxTool.controller.codeTools;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang3.StringUtils;
 
 import com.xwintop.xJavaFxTool.services.codeTools.WebSourcesToolService;
@@ -24,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class WebSourcesToolController extends WebSourcesToolView {
 	private WebSourcesToolService webSourcesToolService = new WebSourcesToolService(this);
 

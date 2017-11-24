@@ -8,6 +8,7 @@ import com.xwintop.xJavaFxTool.services.debugTools.CmdToolService;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.debugTools.CmdToolView;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -35,6 +36,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class CmdToolController extends CmdToolView {
 	private CmdToolService cmdToolService = new CmdToolService(this);
 	private ObservableList<CmdToolTableBean> tableData = FXCollections.observableArrayList();

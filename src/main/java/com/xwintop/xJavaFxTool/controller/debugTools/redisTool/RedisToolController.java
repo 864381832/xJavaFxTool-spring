@@ -6,6 +6,7 @@ import com.xwintop.xJavaFxTool.view.debugTools.redisTool.RedisToolView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -24,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class RedisToolController extends RedisToolView {
 	private RedisToolService redisToolService = new RedisToolService(this);
 

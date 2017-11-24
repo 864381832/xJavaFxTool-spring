@@ -15,6 +15,7 @@ import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.debugTools.HttpToolView;
 import com.xwintop.xcore.util.javafx.TooltipUtil;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,6 +33,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Setter
 @Getter
+@FXMLController
 public class HttpToolController extends HttpToolView {
 	private HttpToolService httpToolService = new HttpToolService(this);
 	private String[] methodStrings = new String[] { "GET", "POST", "HEAD", "PUT", "PATCH", "DELETE" };

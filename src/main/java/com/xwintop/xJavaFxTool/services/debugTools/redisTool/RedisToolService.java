@@ -2,6 +2,8 @@ package com.xwintop.xJavaFxTool.services.debugTools.redisTool;
 
 import com.xwintop.xJavaFxTool.controller.debugTools.redisTool.RedisToolController;
 import com.xwintop.xJavaFxTool.controller.debugTools.redisTool.RedisToolDataTableController;
+import com.xwintop.xJavaFxTool.fxmlView.debugTools.redisTool.RedisToolDataTableView;
+import com.xwintop.xJavaFxTool.utils.SpringUtil;
 import com.xwintop.xcore.util.RedisUtil;
 import com.xwintop.xcore.util.javafx.TooltipUtil;
 
@@ -131,13 +133,16 @@ public class RedisToolService {
                 dataTableTabMap.remove(tab.getText());
             }
         });
-        FXMLLoader fXMLLoader = RedisToolDataTableController.getFXMLLoader();
-        try {
-            tab.setContent(fXMLLoader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        RedisToolDataTableController redisToolDataTableController = fXMLLoader.getController();
+        RedisToolDataTableView redisToolDataTableView = SpringUtil.getBean(RedisToolDataTableView.class);
+        tab.setContent(redisToolDataTableView.getView());
+        RedisToolDataTableController redisToolDataTableController = (RedisToolDataTableController) redisToolDataTableView.getPresenter();
+//        FXMLLoader fXMLLoader = RedisToolDataTableController.getFXMLLoader();
+//        try {
+//            tab.setContent(fXMLLoader.load());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        RedisToolDataTableController redisToolDataTableController = fXMLLoader.getController();
         RedisUtil redisUtil = jedisMap.get(redisName).clone();
         redisUtil.setId(redisId);
         redisToolDataTableController.setData(redisToolController, redisUtil);

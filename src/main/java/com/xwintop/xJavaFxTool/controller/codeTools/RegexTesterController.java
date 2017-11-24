@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 import com.xwintop.xcore.util.javafx.AlertUtil;
@@ -24,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.input.MouseEvent;
 
+@FXMLController
 public class RegexTesterController implements Initializable {
 	@FXML
 	private TextField regexTextField;

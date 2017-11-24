@@ -8,6 +8,7 @@ import com.xwintop.xJavaFxTool.common.ExCodec;
 import com.xwintop.xJavaFxTool.utils.GuiUtils;
 import com.xwintop.xJavaFxTool.utils.RadixUtils;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+@FXMLController
 public class CharacterConverterController implements Initializable {
 	@FXML
 	private AnchorPane mainAnchorPane;

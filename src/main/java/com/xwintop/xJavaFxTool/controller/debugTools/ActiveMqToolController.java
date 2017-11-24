@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javax.jms.JMSException;
 import javax.jms.Session;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.activemq.ActiveMQSession;
 
 import com.xwintop.xJavaFxTool.model.ActiveMqToolReceiverTableBean;
@@ -34,6 +35,7 @@ import javafx.scene.input.MouseButton;
 import lombok.Getter;
 
 @Getter
+@FXMLController
 public class ActiveMqToolController extends ActiveMqToolView {
 	private ActiveMqToolService activeMqToolService = new ActiveMqToolService(this);
 	private ObservableList<ActiveMqToolTableBean> tableData = FXCollections.observableArrayList();

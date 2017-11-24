@@ -11,6 +11,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,6 +33,7 @@ import lombok.extern.log4j.Log4j;
 @Getter
 @Setter
 @Log4j
+@FXMLController
 public class FtpServerController extends FtpServerView {
 	private FtpServerService ftpServerService = new FtpServerService(this);
 	private ObservableList<FtpServerTableBean> tableData = FXCollections.observableArrayList();

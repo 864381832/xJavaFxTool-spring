@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.io.FileUtils;
 
 import com.xwintop.xcore.util.javafx.AlertUtil;
@@ -19,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+@FXMLController
 public class LinuxPathToWindowsPathController implements Initializable {
 	@FXML
 	private TextField textFieldLinuxPath;

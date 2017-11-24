@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import com.xwintop.xcore.util.javafx.TooltipUtil;
 
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+@FXMLController
 public class TimeToolController implements Initializable {
 	/**
 	 * 时间格式.
