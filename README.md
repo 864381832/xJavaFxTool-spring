@@ -13,7 +13,7 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 
 - 本项目使用了lombok,在查看本项目时如果您没有下载lombok 插件，请先安装,不然找不到get/set方法；
 
-- 依赖的[开源项目xcore包](https://gitee.com/xwintop/xcore)请见我的开源项目下载（本版本为开发版，不想独立分离，后期发布会分离开，请见谅。）。
+- 依赖的[xcore包](https://gitee.com/xwintop/xcore)已上传至git托管的maven平台，git托管maven可参考教程。[教程地址：点击进入](http://blog.csdn.net/u011747754/article/details/78574026)
 
 #### 目前集成的小工具有：
 1、FileCopy：文件复制（支持自动调度拷贝功能）；
@@ -71,7 +71,7 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 #### 项目结构
 
 ```
-xJavaFxTool
+xJavaFxTool-spring
 ├─ images	项目截图
 ├─ libs	插件jar包存放
 ├─ pom.xml	maven配置文件
@@ -112,38 +112,27 @@ xJavaFxTool
 │  │  │      └─ webTools	html工具视图层
 │  │  └─ resources
 │  │   ├─ com
-│  │   │  └─ melloware
-│  │   │   └─ jintellitype	JIntellitype工具lib
+│  │   │  ├─ melloware
+│  │   │  │  └─ jintellitype	JIntellitype工具lib
+│  │   │  └─ xwintop
+│  │   │   └─ xJavaFxTool
+│  │   │    └─ fxmlView     .fxml文件
 │  │   ├─ config	配置文件
 │  │   │  ├─ log4j.properties	log4j配置文件
 │  │   │  └─ toolFxmlLoaderConfiguration.xml	系统菜单加载配置文件
 │  │   ├─ css	样式资源
 │  │   ├─ data	数据资源
-│  │   ├─ fxml	.fxml文件
 │  │   ├─ images	图片资源
 │  │   ├─ locale	国际化
 │  │   └─ web	html工具
-│  └─ test
+│  └─ test  测试类
 │   ├─ java
-│   │  └─ com
-│   │   └─ xwintop
-│   │    └─ xJavaFxTool
-│   │     ├─ apache
-│   │     ├─ datafx
-│   │     ├─ java
-│   │     ├─ javafx
-│   │     ├─ swing
-│   │     └─ tools
 │   └─ resources
-│    ├─ com
-│    ├─ config
-│    ├─ css
-│    ├─ fxml
-│    ├─ images
-│    └─ locale
 ├─ xJavaFxTool-spring.jar	直接运行程序包
 
 ```
+
+运行截图展示：
 
 ![输入图片说明](https://git.oschina.net/xwintop/xJavaFxTool-spring/raw/master/images/文件复制.png "文件复制.png")
 ![输入图片说明](https://git.oschina.net/xwintop/xJavaFxTool-spring/raw/master/images/Cron表达式生成器.png "Cron表达式生成器.png")
