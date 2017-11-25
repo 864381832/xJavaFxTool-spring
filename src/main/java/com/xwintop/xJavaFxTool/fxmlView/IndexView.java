@@ -19,7 +19,7 @@ import de.felixroske.jfxsupport.GUIState;
  * @date: 2017/11/22 17:38  
  */
 @Scope("prototype")
-@FXMLView(value = "/fxml/Index.fxml", bundle = "locale.Menu")
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/Index.fxml", bundle = "locale.Menu")
 public class IndexView extends AbstractFxmlView {
     public IndexView() throws Exception {
         //反射修改默认语言

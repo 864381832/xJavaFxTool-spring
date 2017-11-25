@@ -1,6 +1,6 @@
 package com.xwintop.xJavaFxTool.controller;
 
-import com.xwintop.xJavaFxTool.fxmlView.littleTools.FileCopyView;
+import com.xwintop.xJavaFxTool.Main;
 import com.xwintop.xJavaFxTool.model.ToolFxmlLoaderConfiguration;
 import com.xwintop.xJavaFxTool.services.IndexService;
 import com.xwintop.xJavaFxTool.utils.Config;
@@ -9,8 +9,6 @@ import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xJavaFxTool.view.IndexView;
 import com.xwintop.xcore.util.javafx.AlertUtil;
 
-import de.felixroske.jfxsupport.AbstractFxmlView;
-import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -21,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import de.felixroske.jfxsupport.AbstractFxmlView;
+import de.felixroske.jfxsupport.FXMLController;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -36,7 +36,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import org.springframework.beans.factory.annotation.Autowired;
+import javafx.stage.Modality;
 
 /**
  * @ClassName: IndexController
@@ -194,27 +194,28 @@ public class IndexController extends IndexView {
 	 * @Title: addContent
 	 * @Description: 添加Content内容
 	 */
-	private void addContent(String title,String className, String iconPath) {
-		Tab tab = new Tab(title);
-//		FileCopyView fileCopyView = new FileCopyView();
+	private void addContent(String title, String className, String iconPath) {
 		try {
 			Class<AbstractFxmlView> viewClass = (Class<AbstractFxmlView>) ClassLoader.getSystemClassLoader().loadClass(className);
+			if(singleWindowBootCheckBox.isSelected()){
+				Main.showView(viewClass, Modality.NONE);
+				return;
+			}
 			AbstractFxmlView fxmlView = SpringUtil.getBean(viewClass);
+			Tab tab = new Tab(title);
 			tab.setContent(fxmlView.getView());
+
+			if (StringUtils.isNotEmpty(iconPath)) {
+				ImageView imageView = new ImageView(new Image(iconPath));
+				imageView.setFitHeight(18);
+				imageView.setFitWidth(18);
+				tab.setGraphic(imageView);
+			}
+			tabPaneMain.getTabs().add(tab);
+			tabPaneMain.getSelectionModel().select(tab);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		FileCopyView fileCopyView = SpringUtil.getBean(FileCopyView.class);
-//		System.out.println(fileCopyView);
-//		tab.setContent(fileCopyView.getView());
-		if (StringUtils.isNotEmpty(iconPath)) {
-			ImageView imageView = new ImageView(new Image(iconPath));
-			imageView.setFitHeight(18);
-			imageView.setFitWidth(18);
-			tab.setGraphic(imageView);
-		}
-		tabPaneMain.getTabs().add(tab);
-		tabPaneMain.getSelectionModel().select(tab);
 	}
 
 	/**
