@@ -1,9 +1,9 @@
 package com.xwintop.xJavaFxTool.controller;
 
-import com.xwintop.xJavaFxTool.Main;
 import com.xwintop.xJavaFxTool.model.ToolFxmlLoaderConfiguration;
 import com.xwintop.xJavaFxTool.services.IndexService;
 import com.xwintop.xJavaFxTool.utils.Config;
+import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.utils.SpringUtil;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xJavaFxTool.view.IndexView;
@@ -12,7 +12,6 @@ import com.xwintop.xcore.util.javafx.AlertUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +35,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Modality;
 
 /**
  * @ClassName: IndexController
@@ -197,11 +195,12 @@ public class IndexController extends IndexView {
 	private void addContent(String title, String className, String iconPath) {
 		try {
 			Class<AbstractFxmlView> viewClass = (Class<AbstractFxmlView>) ClassLoader.getSystemClassLoader().loadClass(className);
+			AbstractFxmlView fxmlView = SpringUtil.getBean(viewClass);
 			if(singleWindowBootCheckBox.isSelected()){
-				Main.showView(viewClass, Modality.NONE);
+//				Main.showView(viewClass, Modality.NONE);
+				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView.getView());
 				return;
 			}
-			AbstractFxmlView fxmlView = SpringUtil.getBean(viewClass);
 			Tab tab = new Tab(title);
 			tab.setContent(fxmlView.getView());
 
@@ -223,27 +222,30 @@ public class IndexController extends IndexView {
 	 * @Description: 添加Content内容
 	 */
 	private void addContent(String title, String url, String resourceBundleName, String iconPath) {
-		Tab tab = new Tab(title);
-		if (StringUtils.isNotEmpty(iconPath)) {
-			ImageView imageView = new ImageView(new Image(iconPath));
-			imageView.setFitHeight(18);
-			imageView.setFitWidth(18);
-			tab.setGraphic(imageView);
-		}
-		FXMLLoader generatingCodeFXMLLoader;
-		if (StringUtils.isEmpty(resourceBundleName)) {
-			generatingCodeFXMLLoader = new FXMLLoader(getClass().getResource(url));
-		} else {
-			ResourceBundle resourceBundle = ResourceBundle.getBundle(resourceBundleName, Config.defaultLocale);
-			generatingCodeFXMLLoader = new FXMLLoader(getClass().getResource(url), resourceBundle);
-		}
 		try {
+			FXMLLoader generatingCodeFXMLLoader = new FXMLLoader(getClass().getResource(url));
+			if (StringUtils.isNotEmpty(resourceBundleName)) {
+				ResourceBundle resourceBundle = ResourceBundle.getBundle(resourceBundleName, Config.defaultLocale);
+				generatingCodeFXMLLoader.setResources(resourceBundle);
+			}
+			if (singleWindowBootCheckBox.isSelected()) {
+				JavaFxViewUtil.getNewStage(title,iconPath, generatingCodeFXMLLoader.load());
+				return;
+			}
+			Tab tab = new Tab(title);
+			if (StringUtils.isNotEmpty(iconPath)) {
+				ImageView imageView = new ImageView(new Image(iconPath));
+				imageView.setFitHeight(18);
+				imageView.setFitWidth(18);
+				tab.setGraphic(imageView);
+			}
+
 			tab.setContent(generatingCodeFXMLLoader.load());
-		} catch (IOException e) {
+			tabPaneMain.getTabs().add(tab);
+			tabPaneMain.getSelectionModel().select(tab);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		tabPaneMain.getTabs().add(tab);
-		tabPaneMain.getSelectionModel().select(tab);
 	}
 
 	/**

@@ -53,7 +53,7 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <CheckBox fx:id="singleWindowBootCheckBox" mnemonicParsing="false" text="单独窗口打开" />
+                  <CheckBox fx:id="singleWindowBootCheckBox" mnemonicParsing="false" text="%singleWindowBootCheckBox" />
                </children>
             </HBox>
          </top>
