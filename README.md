@@ -1,7 +1,7 @@
 #### 项目简介：
-xJavaFxTool-spring是使用javaFx开发的实用小工具集，目前项目刚刚建立，利用业余时间把工作中遇到的一些问题总结起来，打包进小工具集中，供大家参考和使用，里面包含了javaFx的一些功能的示例，如布局、国际化、第三方UI库（controlsfx、JFoenix等）、外部jar包加载（插件机制）等一些常用功能，想学习javaFx的同学可以参考参考。
+xJavaFxTool-spring是基于springBoot，使用javaFx开发的实用小工具集，目前项目刚刚建立，利用业余时间把工作中遇到的一些问题总结起来，打包进小工具集中，供大家参考和使用，里面包含了javaFx的一些功能的示例，如布局、国际化、第三方UI库（controlsfx、JFoenix等）、外部jar包加载（插件机制）等一些常用功能，想学习javaFx的同学可以参考参考。
 
-xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/xJavaFxTool)之上构建的，后续可能已此版本更新为主，感谢大家的支持。
+xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/xJavaFxTool)之上构建的，后续两个版本都会更新，感谢大家的支持。
 
 下载试用地址：
 [xJavaFxTool-spring.jar](https://gitee.com/xwintop/xJavaFxTool-spring/raw/master/xJavaFxTool-spring.jar)（可直接运行的jar包）
@@ -10,6 +10,8 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 
 #### 环境搭建说明：
 - 开发环境为jdk1.8，基于maven构建；
+
+- 基于SpringBoot搭建，大大简化了配置操作。
 
 - 本项目使用了lombok,在查看本项目时如果您没有下载lombok 插件，请先安装,不然找不到get/set方法；
 
@@ -85,6 +87,7 @@ xJavaFxTool-spring
 │  │  │   └─ xwintop
 │  │  │    └─ xJavaFxTool
 │  │  │     ├─ common	第三方工具类
+│  │  │     ├─ config	springBoot配置类
 │  │  │     ├─ controller	javafx控制层
 │  │  │     │  ├─ codeTools	Code工具控制层
 │  │  │     │  ├─ debugTools	调试工具控制层
@@ -93,6 +96,7 @@ xJavaFxTool-spring
 │  │  │     │  ├─ javaFxTools	javaFx工具控制层
 │  │  │     │  ├─ littleTools	小工具控制层
 │  │  │     │  └─ webTools	html工具控制层
+│  │  │     ├─ fxmlView     FxmlView控制层
 │  │  │     ├─ job	定时任务处理job
 │  │  │     ├─ main	主函数包
 │  │  │     ├─ manager	管理层
@@ -106,12 +110,13 @@ xJavaFxTool-spring
 │  │  │     │  ├─ littleTools	小工具服务层
 │  │  │     │  └─ webTools	html工具服务层
 │  │  │     ├─ utils	系统工具类
-│  │  │     └─ view	javafx视图层
-│  │  │      ├─ codeTools	Code工具视图层
-│  │  │      ├─ debugTools	调试工具视图层
-│  │  │      ├─ developTools	开发工具视图层
-│  │  │      ├─ littleTools	小工具视图层
-│  │  │      └─ webTools	html工具视图层
+│  │  │     ├─ view	javafx视图层
+│  │  │     │  ├─ codeTools	Code工具视图层
+│  │  │     │  ├─ debugTools	调试工具视图层
+│  │  │     │  ├─ developTools	开发工具视图层
+│  │  │     │  ├─ littleTools	小工具视图层
+│  │  │     │  └─ webTools	html工具视图层
+│  │  │     └─ web	web控制视图层
 │  │  └─ resources
 │  │   ├─ com
 │  │   │  ├─ melloware

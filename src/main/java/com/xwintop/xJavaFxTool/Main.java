@@ -23,15 +23,6 @@ public class Main extends AbstractJavaFxApplicationSupport {
 		PropertyConfigurator.configure(Main.class.getResource("/config/log4j.properties"));//加载日志配置
 		XJavaFxSystemUtil.initSystemLocal();//初始化本地语言
 		XJavaFxSystemUtil.addJarByLibs();//添加外部jar包
-//		new Timer().schedule(new TimerTask() {
-//			@Override
-//			public void run() {
-//				Platform.runLater(()->{
-//					ResourceBundle resourceBundle = ResourceBundle.getBundle("locale.Menu", Config.defaultLocale);
-//					AbstractJavaFxApplicationSupport.setTitle(resourceBundle.getString("Title"));
-//				});
-//			}
-//		},5000);
 
 		launchApp(Main.class, IndexView.class, args);
 	}
