@@ -1,12 +1,9 @@
 package com.xwintop.xJavaFxTool.utils;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-
-import java.lang.reflect.InvocationTargetException;
 
 @Component
 public class SpringUtil implements ApplicationContextAware {
@@ -19,9 +16,9 @@ public class SpringUtil implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         if(SpringUtil.applicationContext == null){
-            SpringUtil.applicationContext  = applicationContext;
+            SpringUtil.applicationContext = applicationContext;
         }
-        System.out.println("---------------com.ilex.jiutou.util.Test.Main.SubPackage.SpringUtil---------------");
+        System.out.println("---------------com.xwintop.xJavaFxTool.utils.SpringUtil---------------");
     }
 
     //获取applicationContext
