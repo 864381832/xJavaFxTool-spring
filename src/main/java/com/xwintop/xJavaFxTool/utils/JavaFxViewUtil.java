@@ -1,17 +1,22 @@
 package com.xwintop.xJavaFxTool.utils;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.reflect.MethodUtils;
 
 import java.text.DecimalFormat;
 import java.util.Map;
 
+import de.felixroske.jfxsupport.AbstractFxmlView;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -21,15 +26,18 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
+import lombok.extern.log4j.Log4j;
 
+@Log4j
 public class JavaFxViewUtil {
 
 	/*
-	 * 获取新窗口
-	 */
-	public static Stage getNewStage(String title,String iconUrl, Parent root) {
+     * 获取新窗口
+     */
+	public static Stage getNewStage(String title, String iconUrl, Parent root) {
 		Stage newStage = null;
 		newStage = new Stage();
 		newStage.setTitle(title);
@@ -37,13 +45,54 @@ public class JavaFxViewUtil {
 		newStage.setResizable(true);//可调整大小
 		newStage.setScene(new Scene(root));
 //		newStage.setMaximized(false);
-		if(StringUtils.isEmpty(iconUrl)){
+		if (StringUtils.isEmpty(iconUrl)) {
 			newStage.getIcons().add(new Image("/images/icon.jpg"));
-		}else{
+		} else {
 			newStage.getIcons().add(new Image(iconUrl));
 		}
 		newStage.show();
 		return newStage;
+	}
+
+	/*
+     * 获取新窗口，并添加关闭回调事件
+     */
+	public static Stage getNewStage(String title, String iconUrl, FXMLLoader fXMLLoader) {
+		Stage newStage = null;
+		try {
+			newStage = getNewStage(title, iconUrl, fXMLLoader.<Parent>load());
+			newStage.setOnCloseRequest((WindowEvent event) -> {
+				setControllerOnCloseRequest(fXMLLoader.getController(), event);
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return newStage;
+	}
+
+	/*
+     * 获取新窗口，并添加关闭回调事件
+     */
+	public static Stage getNewStage(String title, String iconUrl, AbstractFxmlView fxmlView) {
+		Stage newStage = null;
+		try {
+			newStage = getNewStage(title, iconUrl, fxmlView.getView());
+			newStage.setOnCloseRequest((WindowEvent event) -> {
+				setControllerOnCloseRequest(fxmlView.getPresenter(), event);
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return newStage;
+	}
+
+	//设置窗口移除前回调
+	public static void setControllerOnCloseRequest(Object controller, Event event){
+		try {
+			MethodUtils.invokeMethod(controller, "onCloseRequest", event);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
 	}
 
 	/**
@@ -58,8 +107,9 @@ public class JavaFxViewUtil {
 	}
 
 	public static void setSpinnerValueFactory(Spinner<Integer> spinner, int min, int max, int initialValue,
-			int amountToStepBy) {
-		IntegerSpinnerValueFactory secondStart_0svf = new IntegerSpinnerValueFactory(min, max,
+											  int amountToStepBy)
+	{
+		IntegerSpinnerValueFactory secondStart_0svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(min, max,
 				initialValue, amountToStepBy);
 		spinner.setValueFactory(secondStart_0svf);
 	}
@@ -87,7 +137,7 @@ public class JavaFxViewUtil {
 	 * @Title: setSpinnerValueFactory
 	 * @Description: 初始化表格属性
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({"rawtypes", "unchecked"})
 	public static void setTableColumnMapValueFactory(TableColumn tableColumn, String name) {
 		tableColumn.setCellValueFactory(new MapValueFactory(name));
 		tableColumn.setCellFactory(TextFieldTableCell.<Map<String, String>>forTableColumn());
@@ -107,9 +157,10 @@ public class JavaFxViewUtil {
 	 * @Title: setTableColumnMapValueFactoryAsChoiceBox
 	 * @Description: 初始化下拉选择表格属性
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({"rawtypes", "unchecked"})
 	public static void setTableColumnMapAsChoiceBoxValueFactory(TableColumn tableColumn, String name, String[] choiceBoxStrings,
-			ObservableList<Map<String, String>> tableData) {
+																ObservableList<Map<String, String>> tableData)
+	{
 		tableColumn.setCellValueFactory(new MapValueFactory(name));
 		tableColumn.setCellFactory(
 				new Callback<TableColumn<Map<String, String>, String>, TableCell<Map<String, String>, String>>() {

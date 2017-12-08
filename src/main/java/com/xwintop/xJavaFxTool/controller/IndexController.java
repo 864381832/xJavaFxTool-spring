@@ -24,6 +24,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -198,7 +199,8 @@ public class IndexController extends IndexView {
 			AbstractFxmlView fxmlView = SpringUtil.getBean(viewClass);
 			if(singleWindowBootCheckBox.isSelected()){
 //				Main.showView(viewClass, Modality.NONE);
-				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView.getView());
+//				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView.getView());
+				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView);
 				return;
 			}
 			Tab tab = new Tab(title);
@@ -212,6 +214,9 @@ public class IndexController extends IndexView {
 			}
 			tabPaneMain.getTabs().add(tab);
 			tabPaneMain.getSelectionModel().select(tab);
+			tab.setOnCloseRequest((Event event)->{
+				JavaFxViewUtil.setControllerOnCloseRequest(fxmlView.getPresenter(),event);
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -229,7 +234,7 @@ public class IndexController extends IndexView {
 				generatingCodeFXMLLoader.setResources(resourceBundle);
 			}
 			if (singleWindowBootCheckBox.isSelected()) {
-				JavaFxViewUtil.getNewStage(title,iconPath, generatingCodeFXMLLoader.load());
+				JavaFxViewUtil.getNewStage(title,iconPath, generatingCodeFXMLLoader);
 				return;
 			}
 			Tab tab = new Tab(title);
@@ -243,6 +248,9 @@ public class IndexController extends IndexView {
 			tab.setContent(generatingCodeFXMLLoader.load());
 			tabPaneMain.getTabs().add(tab);
 			tabPaneMain.getSelectionModel().select(tab);
+			tab.setOnCloseRequest((Event event)->{
+				JavaFxViewUtil.setControllerOnCloseRequest(generatingCodeFXMLLoader.getController(),event);
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -253,19 +261,23 @@ public class IndexController extends IndexView {
 	 * @Description: 添加WebView视图
 	 */
 	private void addWebView(String title, String url, String iconPath) {
-		Tab tab = new Tab(title);
-		if (StringUtils.isNotEmpty(iconPath)) {
-			ImageView imageView = new ImageView(new Image(iconPath));
-			imageView.setFitHeight(18);
-			imageView.setFitWidth(18);
-			tab.setGraphic(imageView);
-		}
 		WebView browser = new WebView();
 		WebEngine webEngine = browser.getEngine();
 		if(url.startsWith("http")){
 			webEngine.load(url);
 		}else{
 			webEngine.load(IndexController.class.getResource(url).toExternalForm());
+		}
+		if (singleWindowBootCheckBox.isSelected()) {
+			JavaFxViewUtil.getNewStage(title,iconPath, browser);
+			return;
+		}
+		Tab tab = new Tab(title);
+		if (StringUtils.isNotEmpty(iconPath)) {
+			ImageView imageView = new ImageView(new Image(iconPath));
+			imageView.setFitHeight(18);
+			imageView.setFitWidth(18);
+			tab.setGraphic(imageView);
 		}
 		tab.setContent(browser);
 		tabPaneMain.getTabs().add(tab);
