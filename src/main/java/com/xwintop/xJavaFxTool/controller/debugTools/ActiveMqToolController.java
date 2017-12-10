@@ -23,6 +23,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -283,5 +284,13 @@ public class ActiveMqToolController extends ActiveMqToolView {
 		Platform.runLater(() -> {
 			activeMqToolService.receiverPullMessageAction();
 		});
+	}
+
+	/**
+	 * 父控件被移除前调用
+	 */
+	public void onCloseRequest(Event event) throws Exception {
+		activeMqToolService.stopQuartzAction();
+		activeMqToolService.receiverMessageStopListenerAction();
 	}
 }

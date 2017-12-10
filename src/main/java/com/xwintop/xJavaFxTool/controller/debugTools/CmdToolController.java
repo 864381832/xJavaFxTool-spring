@@ -15,6 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener.Change;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -254,5 +255,12 @@ public class CmdToolController extends CmdToolView {
 	@FXML
 	private void runAllAction(ActionEvent event) {
 		cmdToolService.runAllAction();
+	}
+
+	/**
+	 * 父控件被移除前调用
+	 */
+	public void onCloseRequest(Event event) throws Exception {
+		cmdToolService.stopQuartzAction();
 	}
 }
