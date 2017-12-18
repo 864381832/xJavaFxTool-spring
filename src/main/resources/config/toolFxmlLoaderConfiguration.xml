@@ -17,7 +17,7 @@
 	<ToolFxmlLoaderConfiguration
 		className="com.xwintop.xJavaFxTool.fxmlView.javaFxTools.JavaFxXmlToObjectCodeView" resourceBundleName=""
 		title="JavaFxXmlToObjectCode" iconPath="/images/icon.jpg"
-		isDefaultShow="true" menuParentId="javaFxTools" controllerType="Node" />
+		menuParentId="javaFxTools" controllerType="Node" />
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.epmsTools.GeneratingCodeView</className>
 		<resourceBundleName></resourceBundleName>
@@ -62,7 +62,6 @@
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.FileCopyView</className>
 		<title>FileCopy</title>
 		<menuParentId>littleTools</menuParentId>
-		<isDefaultShow>true</isDefaultShow>
 	</ToolFxmlLoaderConfiguration>
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.QRCodeBuilderView</className>
@@ -119,7 +118,7 @@
 		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.WebSourcesToolView</className>
 		<title>WebSourcesTool</title>
 		<menuParentId>codeTools</menuParentId>
-		<isDefaultShow></isDefaultShow>
+		<isDefaultShow>true</isDefaultShow>
 	</ToolFxmlLoaderConfiguration>
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.SwitchHostsToolView</className>
@@ -157,7 +156,6 @@
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.ImageToolView</className>
 		<title>ImageTool</title>
 		<menuParentId>littleTools</menuParentId>
-		<isDefaultShow>true</isDefaultShow>
 	</ToolFxmlLoaderConfiguration>
 
 	<ToolFxmlLoaderConfiguration url="/web/littleTools/cron/index.htm"
