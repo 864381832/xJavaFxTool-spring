@@ -9,6 +9,7 @@ import com.xwintop.xJavaFxTool.view.littleTools.ZHConverterView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import org.springframework.context.annotation.Lazy;
 
 /** 
  * @ClassName: ZHConverterController 
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
  * @author: xufeng
  * @date: 2017年8月20日 下午1:13:45  
  */
+@Lazy
 @FXMLController
 public class ZHConverterController extends ZHConverterView {
 	private ZHConverterService zhConverterService = new ZHConverterService();

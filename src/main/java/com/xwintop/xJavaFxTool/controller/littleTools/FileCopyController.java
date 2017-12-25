@@ -26,7 +26,9 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class FileCopyController extends FileCopyView {
 	private FileCopyService fileCopyService = new FileCopyService();

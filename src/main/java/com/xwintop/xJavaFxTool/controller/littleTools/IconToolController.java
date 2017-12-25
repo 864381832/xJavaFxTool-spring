@@ -27,6 +27,7 @@ import javafx.stage.FileChooser;
 import lombok.Getter;
 import lombok.Setter;
 import net.coobird.thumbnailator.geometry.Positions;
+import org.springframework.context.annotation.Lazy;
 
 /** 
  * @ClassName: IconToolController 
@@ -36,6 +37,7 @@ import net.coobird.thumbnailator.geometry.Positions;
  */
 @Getter
 @Setter
+@Lazy
 @FXMLController
 public class IconToolController extends IconToolView {
 	private IconToolService iconToolService = new IconToolService(this);

@@ -35,7 +35,9 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class QRCodeBuilderController extends QRCodeBuilderView{
 

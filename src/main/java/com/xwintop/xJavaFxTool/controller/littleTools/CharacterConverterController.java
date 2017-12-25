@@ -18,7 +18,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class CharacterConverterController implements Initializable {
 	@FXML

@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import org.springframework.context.annotation.Lazy;
 
 /**
  * @ClassName: AsciiPicToolController
@@ -24,6 +25,7 @@ import javafx.fxml.FXML;
 @Getter
 @Setter
 @Log4j
+@Lazy
 @FXMLController
 public class AsciiPicToolController extends AsciiPicToolView {
     private AsciiPicToolService asciiPicToolService = new AsciiPicToolService(this);

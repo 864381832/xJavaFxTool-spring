@@ -32,7 +32,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class CronExpBuilderController extends CronExpBuilderView {
 	private CheckBox[] secondCheckBox = new CheckBox[60];

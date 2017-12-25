@@ -17,7 +17,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class DebugEpmsController implements Initializable {
 	@FXML

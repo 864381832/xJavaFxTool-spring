@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 
 /**
  * @ClassName: PdfConvertToolController
@@ -24,6 +25,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Lazy
 @FXMLController
 public class PdfConvertToolController extends PdfConvertToolView {
 	private PdfConvertToolService pdfConvertToolService = new PdfConvertToolService(this);

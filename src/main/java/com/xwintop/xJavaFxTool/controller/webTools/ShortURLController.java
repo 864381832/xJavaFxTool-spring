@@ -20,7 +20,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class ShortURLController extends ShortURLView {
 

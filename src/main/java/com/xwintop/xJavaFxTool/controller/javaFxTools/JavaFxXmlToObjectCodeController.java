@@ -10,7 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class JavaFxXmlToObjectCodeController implements Initializable {
 	@FXML

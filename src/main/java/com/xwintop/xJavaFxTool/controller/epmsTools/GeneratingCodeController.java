@@ -18,7 +18,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class GeneratingCodeController extends AnchorPane implements Initializable {
 	@FXML

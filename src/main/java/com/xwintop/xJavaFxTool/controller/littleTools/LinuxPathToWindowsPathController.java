@@ -19,7 +19,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class LinuxPathToWindowsPathController implements Initializable {
 	@FXML

@@ -13,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class MessageViewerController implements Initializable {
 	@FXML

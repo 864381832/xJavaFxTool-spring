@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import org.springframework.context.annotation.Lazy;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -26,6 +27,7 @@ import java.util.ResourceBundle;
 @Getter
 @Setter
 @Log4j
+@Lazy
 @FXMLController
 public class TimeToolController extends TimeToolView {
     private TimeToolService timeToolService = new TimeToolService(this);

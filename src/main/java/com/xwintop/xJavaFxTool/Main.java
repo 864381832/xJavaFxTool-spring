@@ -2,12 +2,11 @@ package com.xwintop.xJavaFxTool;
 
 import com.xwintop.xJavaFxTool.fxmlView.IndexView;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
-
+import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
+import de.felixroske.jfxsupport.SplashScreen;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
 
 /** 
  * @ClassName: Main 
@@ -24,6 +23,13 @@ public class Main extends AbstractJavaFxApplicationSupport {
 		XJavaFxSystemUtil.initSystemLocal();//初始化本地语言
 		XJavaFxSystemUtil.addJarByLibs();//添加外部jar包
 
-		launchApp(Main.class, IndexView.class, args);
+		SplashScreen splashScreen = new SplashScreen(){
+			@Override
+			public String getImagePath() {
+				return "/images/javafx.png";
+			}
+		};
+		launch(Main.class,IndexView.class,splashScreen,args);
+//		launchApp(Main.class, IndexView.class, args);
 	}
 }
