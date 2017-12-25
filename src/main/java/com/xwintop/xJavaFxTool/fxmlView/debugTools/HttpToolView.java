@@ -8,11 +8,13 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebView;
 import lombok.Getter;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 import java.util.Map;
 
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class HttpToolView extends AbstractFxmlView {
 

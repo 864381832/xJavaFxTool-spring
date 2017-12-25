@@ -34,8 +34,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import lombok.Getter;
+import org.springframework.context.annotation.Lazy;
 
 @Getter
+@Lazy
 @FXMLController
 public class ActiveMqToolController extends ActiveMqToolView {
 	private ActiveMqToolService activeMqToolService = new ActiveMqToolService(this);

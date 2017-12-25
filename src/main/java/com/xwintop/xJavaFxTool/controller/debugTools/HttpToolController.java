@@ -29,10 +29,12 @@ import javafx.scene.input.MouseButton;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import org.springframework.context.annotation.Lazy;
 
 @Log4j
 @Setter
 @Getter
+@Lazy
 @FXMLController
 public class HttpToolController extends HttpToolView {
 	private HttpToolService httpToolService = new HttpToolService(this);

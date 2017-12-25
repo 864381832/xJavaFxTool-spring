@@ -8,9 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class FtpServerView extends AbstractFxmlView {
 

@@ -10,9 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class ActiveMqToolView extends AbstractFxmlView {
 }

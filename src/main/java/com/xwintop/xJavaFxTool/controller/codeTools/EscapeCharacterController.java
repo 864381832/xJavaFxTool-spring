@@ -12,6 +12,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import org.springframework.context.annotation.Lazy;
 
 /** 
  * @ClassName: EscapeCharacterController 
@@ -19,6 +20,7 @@ import javafx.fxml.FXML;
  * @author: xufeng
  * @date: 2017年8月17日 下午9:55:25  
  */
+@Lazy
 @FXMLController
 public class EscapeCharacterController extends EscapeCharacterView {
 	/**

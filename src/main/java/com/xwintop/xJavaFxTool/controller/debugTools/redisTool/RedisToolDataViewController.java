@@ -25,9 +25,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 
 @Getter
 @Setter
+@Lazy
 @FXMLController
 public class RedisToolDataViewController extends RedisToolDataViewView {
 	private RedisToolDataViewService redisToolDataViewService = new RedisToolDataViewService(this);

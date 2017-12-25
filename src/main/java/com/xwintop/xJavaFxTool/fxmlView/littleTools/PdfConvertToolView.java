@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import lombok.Getter;
 import lombok.Setter;
 import org.controlsfx.control.RangeSlider;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 /**
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.Scope;
  * @date: 2017年11月3日 下午6:13:04
  */
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class PdfConvertToolView extends AbstractFxmlView {
 

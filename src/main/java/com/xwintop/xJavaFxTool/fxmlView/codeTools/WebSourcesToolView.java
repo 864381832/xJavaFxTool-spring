@@ -9,10 +9,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class WebSourcesToolView extends AbstractFxmlView {
 }

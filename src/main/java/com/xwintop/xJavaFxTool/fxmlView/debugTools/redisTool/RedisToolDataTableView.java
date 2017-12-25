@@ -9,9 +9,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class RedisToolDataTableView extends AbstractFxmlView {
 

@@ -33,10 +33,12 @@ import javafx.util.Callback;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import org.springframework.context.annotation.Lazy;
 
 @Getter
 @Setter
 @Log4j
+@Lazy
 @FXMLController
 public class CmdToolController extends CmdToolView {
 	private CmdToolService cmdToolService = new CmdToolService(this);

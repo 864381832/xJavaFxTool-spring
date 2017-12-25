@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 import java.util.Map;
@@ -18,6 +19,7 @@ import java.util.Map;
  * @date: 2017年11月13日 下午4:34:11
  */
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class DirectoryTreeToolView extends AbstractFxmlView {
 

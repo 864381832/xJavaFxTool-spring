@@ -9,9 +9,11 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TreeView;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
+@Lazy
 @FXMLView
 public class RedisToolView extends AbstractFxmlView {
 

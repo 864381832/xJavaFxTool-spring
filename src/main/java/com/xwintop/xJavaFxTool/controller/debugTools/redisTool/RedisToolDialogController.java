@@ -32,9 +32,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 
 @Getter
 @Setter
+@Lazy
 @FXMLController
 public class RedisToolDialogController implements Initializable
 {

@@ -24,7 +24,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.input.MouseEvent;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @FXMLController
 public class RegexTesterController implements Initializable {
 	@FXML
