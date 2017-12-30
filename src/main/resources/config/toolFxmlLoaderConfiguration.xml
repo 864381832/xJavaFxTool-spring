@@ -41,22 +41,22 @@
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.TimeToolView</className>
 		<title>TimeTool</title>
-		<menuParentId>littleTools</menuParentId>
+		<menuParentId>codeTools</menuParentId>
 	</ToolFxmlLoaderConfiguration>
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.CharacterConverterView</className>
 		<title>CharacterConverter</title>
-		<menuParentId>littleTools</menuParentId>
+		<menuParentId>codeTools</menuParentId>
 	</ToolFxmlLoaderConfiguration>
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.EncryptAndDecryptView</className>
 		<title>EncryptAndDecrypt</title>
-		<menuParentId>littleTools</menuParentId>
+		<menuParentId>codeTools</menuParentId>
 	</ToolFxmlLoaderConfiguration>
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.CronExpBuilderView</className>
 		<title>CronExpBuilder</title>
-		<menuParentId>littleTools</menuParentId>
+		<menuParentId>codeTools</menuParentId>
 	</ToolFxmlLoaderConfiguration>
 	<ToolFxmlLoaderConfiguration>
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.FileCopyView</className>
