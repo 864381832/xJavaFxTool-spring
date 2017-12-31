@@ -1,12 +1,18 @@
 package com.xwintop.xJavaFxTool;
 
 import com.xwintop.xJavaFxTool.fxmlView.IndexView;
+import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
+import de.felixroske.jfxsupport.GUIState;
 import de.felixroske.jfxsupport.SplashScreen;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /** 
  * @ClassName: Main 
@@ -31,5 +37,13 @@ public class Main extends AbstractJavaFxApplicationSupport {
 		};
 		launch(Main.class,IndexView.class,splashScreen,args);
 //		launchApp(Main.class, IndexView.class, args);
+	}
+
+	@Override
+	public void beforeInitialView(Stage stage, ConfigurableApplicationContext ctx) {
+		super.beforeInitialView(stage, ctx);
+		Scene scene = JavaFxViewUtil.getJFXDecoratorScene(stage,"",null,new AnchorPane());
+		stage.setScene(scene);
+		GUIState.setScene(scene);
 	}
 }
