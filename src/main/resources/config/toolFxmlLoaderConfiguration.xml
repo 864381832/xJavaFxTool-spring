@@ -168,6 +168,17 @@
 		<title>AsciiPicTool</title>
 		<menuParentId>developTools</menuParentId>
 	</ToolFxmlLoaderConfiguration>
+	<ToolFxmlLoaderConfiguration>
+		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.KafkaToolView</className>
+		<title>KafkaTool</title>
+		<menuParentId>debugTools</menuParentId>
+	</ToolFxmlLoaderConfiguration>
+	<ToolFxmlLoaderConfiguration>
+		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.EmailToolView</className>
+		<title>EmailTool</title>
+		<menuParentId>littleTools</menuParentId>
+		<isDefaultShow></isDefaultShow>
+	</ToolFxmlLoaderConfiguration>
 
 	<ToolFxmlLoaderConfiguration url="/web/littleTools/cron/index.htm"
 		title="webCronExpBuilder" menuParentId="netWorkToolsMenu"
