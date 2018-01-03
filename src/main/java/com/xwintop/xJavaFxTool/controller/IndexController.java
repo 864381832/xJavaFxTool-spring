@@ -9,6 +9,7 @@ import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xJavaFxTool.view.IndexView;
 import com.xwintop.xcore.util.javafx.AlertUtil;
 
+import javafx.scene.layout.BorderPane;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -269,7 +270,7 @@ public class IndexController extends IndexView {
 			webEngine.load(IndexController.class.getResource(url).toExternalForm());
 		}
 		if (singleWindowBootCheckBox.isSelected()) {
-			JavaFxViewUtil.getNewStage(title,iconPath, browser);
+			JavaFxViewUtil.getNewStage(title,iconPath, new BorderPane(browser));
 			return;
 		}
 		Tab tab = new Tab(title);
