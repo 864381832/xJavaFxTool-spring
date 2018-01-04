@@ -31,7 +31,7 @@ public class IndexView extends AbstractFxmlView {
 
     @Override
     public Parent getView() {
-        JFXDecorator decorator = JavaFxViewUtil.getJFXDecorator(GUIState.getStage(),GUIState.getStage().getTitle(),"/images/icon.jpg",super.getView());
+        JFXDecorator decorator = JavaFxViewUtil.getJFXDecorator(GUIState.getStage(),GUIState.getStage().getTitle() + Config.xJavaFxToolVersions,"/images/icon.jpg",super.getView());
         decorator.setOnCloseButtonAction(()->{System.exit(0);});
         return decorator;
     }
