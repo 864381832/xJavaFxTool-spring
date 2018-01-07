@@ -55,6 +55,7 @@ public class JavaFxViewUtil {
 		}
 		return decorator;
 	}
+
 	/**
 	 * 获取JFoenix窗口
 	 * @param stage
@@ -64,6 +65,14 @@ public class JavaFxViewUtil {
 	 */
 	public static Scene getJFXDecoratorScene(Stage stage,String title, String iconUrl, Parent root){
 		JFXDecorator decorator = getJFXDecorator(stage,title,iconUrl,root);
+		return getJFXDecoratorScene(decorator);
+	}
+
+	/**
+	 * 获取JFoenix窗口
+	 * @param decorator 显示的decorator面板
+	 */
+	public static Scene getJFXDecoratorScene(JFXDecorator decorator){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double width = screenSize.width / 1.35;
 		double height = screenSize.height / 1.2;

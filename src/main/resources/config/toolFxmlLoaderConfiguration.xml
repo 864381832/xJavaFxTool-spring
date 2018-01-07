@@ -177,6 +177,11 @@
 		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.EmailToolView</className>
 		<title>EmailTool</title>
 		<menuParentId>littleTools</menuParentId>
+	</ToolFxmlLoaderConfiguration>
+	<ToolFxmlLoaderConfiguration>
+		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.ColorCodeConverterToolView</className>
+		<title>ColorCodeConverterTool</title>
+		<menuParentId>codeTools</menuParentId>
 		<isDefaultShow></isDefaultShow>
 	</ToolFxmlLoaderConfiguration>
 
