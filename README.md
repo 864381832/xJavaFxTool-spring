@@ -76,6 +76,8 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 
 29、ColorCodeConverterTool：颜色代码转换工具（包括16进制、RGB、ARGB、RGBA、HSL、HSV等代码之间转换）；
 
+30、SmsTool：短信群发工具（目前支持中国移动、中国电信、腾讯云、阿里云、梦网云通讯等平台）；
+
 
 项目开发中，以后会陆续添加新工具，欢迎大家参与其中，多提提意见，谢谢。
 
@@ -172,3 +174,4 @@ xJavaFxTool-spring
 ![输入图片说明](https://git.oschina.net/xwintop/xJavaFxTool-spring/raw/master/images/Pdf转换工具.png "Pdf转换工具.png")
 ![输入图片说明](https://git.oschina.net/xwintop/xJavaFxTool-spring/raw/master/images/图片转码工具.png "图片转码工具.png")
 ![输入图片说明](https://git.oschina.net/xwintop/xJavaFxTool-spring/raw/master/images/Cmd调试工具.png "Cmd调试工具.png")
+![输入图片说明](https://git.oschina.net/xwintop/xJavaFxTool-spring/raw/master/images/短信群发工具.png "短信群发工具.png")

@@ -182,6 +182,11 @@
 		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.ColorCodeConverterToolView</className>
 		<title>ColorCodeConverterTool</title>
 		<menuParentId>codeTools</menuParentId>
+	</ToolFxmlLoaderConfiguration>
+	<ToolFxmlLoaderConfiguration>
+		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.SmsToolView</className>
+		<title>SmsTool</title>
+		<menuParentId>littleTools</menuParentId>
 		<isDefaultShow></isDefaultShow>
 	</ToolFxmlLoaderConfiguration>
 
