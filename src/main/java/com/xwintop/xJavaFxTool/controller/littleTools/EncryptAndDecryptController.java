@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import com.xwintop.xJavaFxTool.utils.MorseConventer;
 import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.codec.binary.Base32;
@@ -28,7 +29,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import org.springframework.context.annotation.Lazy;
-
+/**
+ * @ClassName: EncryptAndDecryptController
+ * @Description: 加密解密工具
+ * @author: xufeng
+ * @date: 2018/1/21 0021 1:08
+ */
 @Lazy
 @FXMLController
 public class EncryptAndDecryptController implements Initializable {
@@ -58,7 +64,7 @@ public class EncryptAndDecryptController implements Initializable {
 	 */
 	private String[] cryptos = new String[] { GuiUtils.CRYPTO_ASCII, GuiUtils.CRYPTO_HEX, GuiUtils.CRYPTO_BASE64,
 			GuiUtils.CRYPTO_BASE32, GuiUtils.CRYPTO_URL, "", "", "", GuiUtils.CRYPTO_MD5, "", GuiUtils.CRYPTO_SHA,
-			GuiUtils.CRYPTO_SHA256, GuiUtils.CRYPTO_SHA384, GuiUtils.CRYPTO_SHA512,"","","文件加密MD5","文件加密SHA1","摩斯密码" };
+			GuiUtils.CRYPTO_SHA256, GuiUtils.CRYPTO_SHA384, GuiUtils.CRYPTO_SHA512,"","","文件加密MD5","文件加密SHA1","摩斯密码","Druid加密" };
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -126,6 +132,13 @@ public class EncryptAndDecryptController implements Initializable {
 				decrptyTextArea.setText(DigestUtils.sha1Hex(new FileInputStream(new File(string))));
 			} else if ("摩斯密码".equals(curCrypto)) {
 				decrptyTextArea.setText(MorseConventer.Encryption(string));
+			} else if ("Druid加密".equals(curCrypto)) {
+				String[] arr = ConfigTools.genKeyPair(512);
+				StringBuilder decrptyStr = new StringBuilder();
+				decrptyStr.append("privateKey:" + arr[0]);
+				decrptyStr.append("\npublicKey:" + arr[1]);
+				decrptyStr.append("\npassword:" + ConfigTools.encrypt(arr[0], string));
+				decrptyTextArea.setText(decrptyStr.toString());
 			}
 		} catch (Exception e) {
 			decrptyTextArea.setText(e.getMessage());

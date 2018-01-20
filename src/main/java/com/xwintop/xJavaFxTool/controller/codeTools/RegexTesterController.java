@@ -26,6 +26,12 @@ import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.input.MouseEvent;
 import org.springframework.context.annotation.Lazy;
 
+/**
+ * @ClassName: RegexTesterController
+ * @Description: 正则表达式生成工具
+ * @author: xufeng
+ * @date: 2018/1/21 0021 1:02
+ */
 @Lazy
 @FXMLController
 public class RegexTesterController implements Initializable {
