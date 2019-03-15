@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/debugTools/SwitchHostsTool.fxml")
 public class SwitchHostsToolView extends AbstractFxmlView {
 
 }

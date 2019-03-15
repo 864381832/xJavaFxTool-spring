@@ -20,7 +20,7 @@ import java.util.Map;
  */
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/developTools/DirectoryTreeTool.fxml")
 public class DirectoryTreeToolView extends AbstractFxmlView {
 
 }

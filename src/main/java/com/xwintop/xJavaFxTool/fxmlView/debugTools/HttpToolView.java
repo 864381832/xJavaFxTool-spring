@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/debugTools/HttpTool.fxml")
 public class HttpToolView extends AbstractFxmlView {
 
 }

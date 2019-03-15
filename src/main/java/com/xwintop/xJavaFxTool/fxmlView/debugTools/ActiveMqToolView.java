@@ -15,6 +15,6 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/debugTools/ActiveMqTool.fxml")
 public class ActiveMqToolView extends AbstractFxmlView {
 }

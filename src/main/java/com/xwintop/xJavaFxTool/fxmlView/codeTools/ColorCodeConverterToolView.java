@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/codeTools/ColorCodeConverterTool.fxml")
 @Lazy
 public class ColorCodeConverterToolView extends AbstractFxmlView {
 }

@@ -6,8 +6,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
-//@FXMLView(value = "/fxml/littleTools/FileCopy.fxml", bundle = "locale.Menu")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/littleTools/FileCopy.fxml")
 public class FileCopyView extends AbstractFxmlView {
 }

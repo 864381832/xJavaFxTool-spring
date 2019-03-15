@@ -196,7 +196,8 @@ public class IndexController extends IndexView {
 	 */
 	private void addContent(String title, String className, String iconPath) {
 		try {
-			Class<AbstractFxmlView> viewClass = (Class<AbstractFxmlView>) ClassLoader.getSystemClassLoader().loadClass(className);
+//			Class<AbstractFxmlView> viewClass = (Class<AbstractFxmlView>) ClassLoader.getSystemClassLoader().loadClass(className);
+			Class<AbstractFxmlView> viewClass =  (Class<AbstractFxmlView>) Thread.currentThread().getContextClassLoader().loadClass(className);
 			AbstractFxmlView fxmlView = SpringUtil.getBean(viewClass);
 			if(singleWindowBootCheckBox.isSelected()){
 //				Main.showView(viewClass, Modality.NONE);

@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/javaFxTools/ShowSystemInfo.fxml")
 public class ShowSystemInfoView  extends AbstractFxmlView {
 }

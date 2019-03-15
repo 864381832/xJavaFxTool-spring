@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/littleTools/LinuxPathToWindowsPath.fxml")
 public class LinuxPathToWindowsPathView extends AbstractFxmlView {
 }

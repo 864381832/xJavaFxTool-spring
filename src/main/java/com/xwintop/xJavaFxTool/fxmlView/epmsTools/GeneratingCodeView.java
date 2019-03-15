@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/epmsTools/GeneratingCode.fxml")
 public class GeneratingCodeView extends AbstractFxmlView {
 }

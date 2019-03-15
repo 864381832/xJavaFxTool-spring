@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/debugTools/redisTool/RedisToolDataView.fxml")
 public class RedisToolDataViewView extends AbstractFxmlView {
 
 }

@@ -8,7 +8,7 @@ import de.felixroske.jfxsupport.FXMLView;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/littleTools/ImageTool.fxml")
 public class ImageToolView extends AbstractFxmlView {
 
 }

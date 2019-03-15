@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 @Lazy
-@FXMLView
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/debugTools/KafkaTool.fxml")
 public class KafkaToolView extends AbstractFxmlView {
 
 }
