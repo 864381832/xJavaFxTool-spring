@@ -10,18 +10,22 @@ xJavaFxTool-spring是基于springBoot，使用javaFx开发的实用小工具集�
 xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/xJavaFxTool)之上构建的，后续两个版本都会更新，感谢大家的支持。
 
 下载试用地址：
-[xJavaFxTool-spring.jar](https://gitee.com/xwintop/xJavaFxTool-spring/raw/master/xJavaFxTool-spring.jar)（可直接运行的jar包）
+[xJavaFxTool-spring-0.1.2.jar](https://files.gitee.com/group1/M00/07/D2/PaAvDFzpLdOAcjMoBALY-DWeD0o800.jar?token=92f1b53a8f0b7117878a3f1ed61b2d02&ts=1558785583&attname=xJavaFxTool-spring-0.1.2.jar)（可直接运行的jar包）
 
 支持插件开发，将插件jar包放至根目录libs下即可自动加载（插件开发示例见[开源项目xJavaFxPlugIn](https://gitee.com/xwintop/xJavaFxPlugIn)，目前刚刚搭建，后续会持续更新）；
 
 #### 环境搭建说明：
 - 开发环境为jdk1.8，基于maven构建；
 
+- 使用eclipase或Intellij Idea开发(推荐使用[Intellij Idea](https://www.jetbrains.com/idea/))
+
 - 基于SpringBoot搭建，大大简化了配置操作。
 
 - 本项目使用了lombok,在查看本项目时如果您没有下载lombok 插件，请先安装,不然找不到get/set方法；
 
 - 依赖的[xcore包](https://gitee.com/xwintop/xcore)已上传至git托管的maven平台，git托管maven可参考教程。[教程地址：点击进入](http://blog.csdn.net/u011747754/article/details/78574026)
+
+- 使用[exe4j](https://www.ej-technologies.com/download/exe4j/files)将jar包转成exe执行文件（仅供参考，可使用其它程序打包）
 
 #### 目前集成的小工具有：
 1、FileCopy：文件复制（支持自动调度拷贝功能）；
