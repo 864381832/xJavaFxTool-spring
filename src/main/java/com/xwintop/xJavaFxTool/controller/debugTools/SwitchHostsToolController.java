@@ -2,10 +2,6 @@ package com.xwintop.xJavaFxTool.controller.debugTools;
 
 import com.xwintop.xJavaFxTool.services.debugTools.SwitchHostsToolService;
 import com.xwintop.xJavaFxTool.view.debugTools.SwitchHostsToolView;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +10,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.springframework.context.annotation.Lazy;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 @Getter
 @Setter
@@ -31,8 +30,7 @@ public class SwitchHostsToolController extends SwitchHostsToolView {
             initEvent();
             initService();
         } catch (Exception e) {
-            e.printStackTrace();
-            log.error(e.getMessage());
+            log.error("初始化失败", e);
         }
     }
 
