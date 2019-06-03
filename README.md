@@ -1,7 +1,7 @@
 #### 项目简介：
 **gitee地址：**[xJavaFxTool-spring](https://gitee.com/xwintop/xJavaFxTool-spring) 
 
-**GitHub地址：**[xJavaFxTool-spring](https://github.com/864381832/xwintop-xJavaFxTool-spring)
+**GitHub地址：**[xJavaFxTool-spring](https://github.com/864381832/xJavaFxTool-spring)
 
 **xJavaFxTool交流QQ群：== [387473650](https://jq.qq.com/?_wv=1027&k=59UDEAD) ==**
 
