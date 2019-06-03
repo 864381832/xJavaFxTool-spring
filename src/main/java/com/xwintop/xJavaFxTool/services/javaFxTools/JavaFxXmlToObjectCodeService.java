@@ -42,7 +42,7 @@ public class JavaFxXmlToObjectCodeService {
 		controllerClassStrBuilder.append("import java.util.ResourceBundle;\n");
 		controllerClassStrBuilder.append("import javafx.event.ActionEvent;\n");
 		controllerClassStrBuilder.append("import javafx.fxml.FXML;\n");
-		controllerClassStrBuilder.append("@Getter\n@Setter\n@Log4j\n");
+		controllerClassStrBuilder.append("@Getter\n@Setter\n@Slf4j\n");
 		controllerClassStrBuilder.append("public class "+classNameString+"Controller extends "+classNameString+"View {\n");
 		controllerClassStrBuilder.append("private "+classNameString+"Service "+classNameStringLoCase+"Service = new "+classNameString+"Service(this);\n");
 //		@Override
@@ -83,7 +83,7 @@ public class JavaFxXmlToObjectCodeService {
 		serviceClassStrBuilder.append("import com.xwintop.xJavaFxTool.controller"+viewPackage+"."+classNameString+"Controller;\n");
 		serviceClassStrBuilder.append("import lombok.Getter;\n");
 		serviceClassStrBuilder.append("import lombok.Setter;\n");
-		serviceClassStrBuilder.append("@Getter\n@Setter\n@Log4j\n");
+		serviceClassStrBuilder.append("@Getter\n@Setter\n@Slf4j\n");
 		serviceClassStrBuilder.append("public class "+classNameString+"Service{\n");
 		serviceClassStrBuilder.append("private "+classNameString+"Controller "+classNameStringLoCase+"Controller;\n");
 		serviceClassStrBuilder.append("public "+classNameString+"Service("+classNameString+"Controller "+classNameStringLoCase+"Controller) {\n");

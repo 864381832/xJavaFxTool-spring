@@ -8,17 +8,6 @@ import com.xwintop.xJavaFxTool.utils.SpringUtil;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xJavaFxTool.view.IndexView;
 import com.xwintop.xcore.util.javafx.AlertUtil;
-
-import javafx.scene.layout.BorderPane;
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
-
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
-
 import de.felixroske.jfxsupport.AbstractFxmlView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.application.Platform;
@@ -35,8 +24,17 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 /**
  * @ClassName: IndexController
@@ -45,8 +43,8 @@ import javafx.scene.web.WebView;
  * @date: 2017年7月20日 下午1:50:00
  */
 @FXMLController
+@Slf4j
 public class IndexController extends IndexView {
-	private static Logger log = Logger.getLogger(IndexController.class);
 	private Map<String, Menu> menuMap = new HashMap<String, Menu>();
 	private Map<String, MenuItem> menuItemMap = new HashMap<String, MenuItem>();
 	private IndexService indexService = new IndexService();

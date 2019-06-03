@@ -26,7 +26,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.ActiveMQSession;
 import org.springframework.context.annotation.Lazy;
 
@@ -35,7 +35,7 @@ import javax.jms.Session;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@Log4j
+@Slf4j
 @Setter
 @Getter
 @Lazy

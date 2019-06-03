@@ -29,7 +29,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 
 /**
@@ -41,7 +41,7 @@ import org.springframework.context.annotation.Lazy;
 
 @Getter
 @Setter
-@Log4j
+@Slf4j
 @Lazy
 @FXMLController
 public class ImageToolController extends ImageToolView {

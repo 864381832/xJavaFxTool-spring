@@ -22,7 +22,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 
 import java.io.File;
@@ -39,7 +39,7 @@ import java.util.ResourceBundle;
  */
 @Getter
 @Setter
-@Log4j
+@Slf4j
 @Lazy
 @FXMLController
 public class EmailToolController extends EmailToolView {

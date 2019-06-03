@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 
 import java.net.URL;
@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
  */
 @Getter
 @Setter
-@Log4j
+@Slf4j
 @Lazy
 @FXMLController
 public class ColorCodeConverterToolController extends ColorCodeConverterToolView {

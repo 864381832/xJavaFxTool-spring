@@ -2,6 +2,7 @@ package com.xwintop.xJavaFxTool.utils;
 
 import com.jfoenix.controls.JFXDecorator;
 import javafx.scene.image.ImageView;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.reflect.MethodUtils;
 
@@ -32,9 +33,8 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import lombok.extern.log4j.Log4j;
 
-@Log4j
+@Slf4j
 public class JavaFxViewUtil {
 	/**
 	 * 获取JFoenix面板

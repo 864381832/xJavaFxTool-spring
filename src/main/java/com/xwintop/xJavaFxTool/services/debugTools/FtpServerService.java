@@ -26,11 +26,11 @@ import java.util.function.Consumer;
 import javafx.stage.FileChooser;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
-@Log4j
+@Slf4j
 public class FtpServerService {
 	private FtpServerController ftpServerController;
 	private FtpServer server = null;

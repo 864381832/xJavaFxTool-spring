@@ -32,11 +32,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
-@Log4j
+@Slf4j
 public class RedisToolService {
 
     private RedisToolController redisToolController;

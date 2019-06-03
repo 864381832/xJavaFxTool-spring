@@ -13,14 +13,14 @@ import com.xwintop.xJavaFxTool.controller.codeTools.WebSourcesToolController;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 @Getter
 @Setter
-@Log4j
+@Slf4j
 public class WebSourcesToolService {
 	private WebSourcesToolController webSourcesToolController;
 	private final OkHttpClient client = new OkHttpClient();

@@ -20,7 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 
 import java.net.URL;
@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 
 @Getter
 @Setter
-@Log4j
+@Slf4j
 @Lazy
 @FXMLController
 public class SmsToolController extends SmsToolView {

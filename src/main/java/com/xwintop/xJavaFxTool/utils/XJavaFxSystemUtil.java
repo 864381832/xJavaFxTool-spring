@@ -12,12 +12,12 @@ import java.util.Locale;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.configuration.tree.ConfigurationNode;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -32,9 +32,8 @@ import com.xwintop.xJavaFxTool.model.ToolFxmlLoaderConfiguration;
  * @author: xufeng
  * @date: 2017年11月10日 下午4:35:17  
  */
+@Slf4j
 public class XJavaFxSystemUtil {
-	private static Logger log = Logger.getLogger(XJavaFxSystemUtil.class);
-
 	/**
 	 * @Title: initSystemLocal
 	 * @Description: 初始化本地语言
