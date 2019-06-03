@@ -162,9 +162,9 @@
 				<configuration>
 					<mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
 					<vendor>xJavaFxTool-spring</vendor>
-					<jfxMainAppJarName>xJavaFxTool-spring.jar</jfxMainAppJarName>
-					<updateExistingJar>true</updateExistingJar>
-					<allPermissions>true</allPermissions>
+<!--					<jfxMainAppJarName>xJavaFxTool-spring.jar</jfxMainAppJarName>-->
+<!--					<updateExistingJar>true</updateExistingJar>-->
+<!--					<allPermissions>true</allPermissions>-->
 				</configuration>
 			</plugin>
 		</plugins>
