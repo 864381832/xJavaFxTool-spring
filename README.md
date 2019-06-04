@@ -3,6 +3,8 @@
 
 **GitHub地址：**[xJavaFxTool-spring](https://github.com/864381832/xJavaFxTool-spring)
 
+**腾讯云开发平台地址：**[xJavaFxTool-spring](https://dev.tencent.com/u/xwintop/p/xJavaFxTool-spring)
+
 **xJavaFxTool交流QQ群：== [387473650](https://jq.qq.com/?_wv=1027&k=59UDEAD) ==**
 
 xJavaFxTool-spring是基于springBoot，使用javaFx开发的实用小工具集，利用业余时间把工作中遇到的一些问题总结起来，打包进小工具集中，供大家参考和使用，里面包含了javaFx的一些功能的示例，如布局、国际化、第三方UI库（controlsfx、JFoenix等）、外部jar包加载（插件机制）等一些常用功能，想学习javaFx的同学可以参考参考。
@@ -10,7 +12,14 @@ xJavaFxTool-spring是基于springBoot，使用javaFx开发的实用小工具集�
 xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/xJavaFxTool)之上构建的，后续两个版本都会更新，感谢大家的支持。
 
 下载试用地址：
-[xJavaFxTool-spring-0.1.3.jar](https://files.gitee.com/group1/M00/07/F1/PaAvDFz1DJqAIGMmBJNIAuSdRms334.jar?token=0f3342ceae8149d39900f7bc7f928ac3&ts=1559573504&attname=xJavaFxTool-spring-0.1.3.jar)（可直接运行的jar包）
+
+可直接运行的jar包（本地需要有jdk1.8环境）[xJavaFxTool-spring-0.1.3.jar](https://files.gitee.com/group1/M00/07/F1/PaAvDFz1DJqAIGMmBJNIAuSdRms334.jar?token=0f3342ceae8149d39900f7bc7f928ac3&ts=1559573504&attname=xJavaFxTool-spring-0.1.3.jar)
+
+Windows x86安装包（兼容xp、windows7、8、10等系统）[xJavaFxTool-spring-0.1.3-windows-x86.exe](https://dev.tencent.com/s/67307b7d-4478-433e-b53c-df116a3f7efd)
+
+Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.dmg](https://dev.tencent.com/s/e5b4ebfa-c2a8-4f4f-a8ac-285fae9cd0fa)
+
+Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.pkg](https://dev.tencent.com/s/2fd2ca47-5e4b-478a-86d1-b136f763a74b)
 
 支持插件开发，将插件jar包放至根目录libs下即可自动加载（插件开发示例见[开源项目xJavaFxPlugIn](https://gitee.com/xwintop/xJavaFxPlugIn)，目前刚刚搭建，后续会持续更新）；
 
