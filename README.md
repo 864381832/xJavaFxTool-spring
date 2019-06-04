@@ -21,6 +21,12 @@ Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.dmg](https://dev.tencent.com/s
 
 Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.pkg](https://dev.tencent.com/s/2fd2ca47-5e4b-478a-86d1-b136f763a74b)
 
+若上面下链接失效可使用下面下载链接：
+
+百度云链接：[https://pan.baidu.com/s/1RjlR58eu_GZC4iy46eGKLw](https://pan.baidu.com/s/1RjlR58eu_GZC4iy46eGKLw)  提取码：zerc
+
+腾讯微云链接：[https://share.weiyun.com/57irGHJ](https://share.weiyun.com/57irGHJ) 提取码：java
+
 支持插件开发，将插件jar包放至根目录libs下即可自动加载（插件开发示例见[开源项目xJavaFxPlugIn](https://gitee.com/xwintop/xJavaFxPlugIn)，目前刚刚搭建，后续会持续更新）；
 
 #### 环境搭建说明：
