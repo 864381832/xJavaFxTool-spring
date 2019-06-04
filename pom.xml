@@ -159,12 +159,11 @@
 			<plugin>
 				<groupId>com.zenjava</groupId>
 				<artifactId>javafx-maven-plugin</artifactId>
+				<version>8.8.3</version>
 				<configuration>
 					<mainClass>com.xwintop.xJavaFxTool.Main</mainClass>
 					<vendor>xJavaFxTool-spring</vendor>
-<!--					<jfxMainAppJarName>xJavaFxTool-spring.jar</jfxMainAppJarName>-->
-<!--					<updateExistingJar>true</updateExistingJar>-->
-<!--					<allPermissions>true</allPermissions>-->
+					<jfxMainAppJarName>xJavaFxTool-spring.jar</jfxMainAppJarName>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -17,6 +17,10 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 
 Windows x86安装包（兼容xp、windows7、8、10等系统）[xJavaFxTool-spring-0.1.3-windows-x86.exe](https://dev.tencent.com/s/67307b7d-4478-433e-b53c-df116a3f7efd)
 
+Windows x64安装包（兼容xp、windows7、8、10等系统）[xJavaFxTool-spring-0.1.3-windows-x64.exe](https://dev.tencent.com/s/e6ad1bf1-f3ff-410a-9259-cc4ab1c3c3c5)
+
+Linux x64 [xJavaFxTool-spring-0.1.3-linux-x64.zip](https://dev.tencent.com/s/fd9de129-c347-417d-ad90-a0cb6ce55c90) （Linux平台64位运行压缩包，解压即可运行）
+
 Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.dmg](https://dev.tencent.com/s/e5b4ebfa-c2a8-4f4f-a8ac-285fae9cd0fa)
 
 Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.pkg](https://dev.tencent.com/s/2fd2ca47-5e4b-478a-86d1-b136f763a74b)
