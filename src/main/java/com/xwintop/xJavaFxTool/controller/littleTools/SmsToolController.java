@@ -26,6 +26,13 @@ import org.springframework.context.annotation.Lazy;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @ClassName: SmsToolController
+ * @Description: 短信群发工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:26
+ */
+
 @Getter
 @Setter
 @Slf4j

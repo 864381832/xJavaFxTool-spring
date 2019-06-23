@@ -1,12 +1,12 @@
 package com.xwintop.xJavaFxTool.controller.debugTools;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.xwintop.xJavaFxTool.model.CmdToolTableBean;
 import com.xwintop.xJavaFxTool.services.debugTools.CmdToolService;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.debugTools.CmdToolView;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
@@ -34,6 +34,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
+
+/**
+ * @ClassName: CmdToolController
+ * @Description: Cmd调试工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:22
+ */
 
 @Getter
 @Setter

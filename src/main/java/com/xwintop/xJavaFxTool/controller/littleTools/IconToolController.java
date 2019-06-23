@@ -30,11 +30,11 @@ import lombok.Setter;
 import net.coobird.thumbnailator.geometry.Positions;
 import org.springframework.context.annotation.Lazy;
 
-/**
- * @ClassName: IconToolController
+/** 
+ * @ClassName: IconToolController 
  * @Description: 图标转换工具
  * @author: xufeng
- * @date: 2017年8月25日 上午9:54:55
+ * @date: 2017年8月25日 上午9:54:55  
  */
 @Getter
 @Setter
@@ -126,8 +126,8 @@ public class IconToolController extends IconToolView {
 		iconToolService.loadingConfigure();
 	}
 
-	/**
-	 * @Title: chooseOriginalPathAction
+	/** 
+	 * @Title: chooseOriginalPathAction 
 	 * @Description: 选择图标图片
 	 */
 	@FXML
@@ -148,8 +148,8 @@ public class IconToolController extends IconToolView {
 		}
 	}
 
-	/**
-	 * @Title: chooseTargetPathAction
+	/** 
+	 * @Title: chooseTargetPathAction 
 	 * @Description: 选择生成目录（为空则为原图片目录）
 	 */
 	@FXML
@@ -165,8 +165,8 @@ public class IconToolController extends IconToolView {
 		iconToolService.addSizeAction(widthSpinner.getValue() + "*" + heightSpinner.getValue());
 	}
 
-	/**
-	 * @Title: resettingSizeAction
+	/** 
+	 * @Title: resettingSizeAction 
 	 * @Description: 重置图片尺寸选择CheckBox
 	 */
 	@FXML
@@ -174,8 +174,8 @@ public class IconToolController extends IconToolView {
 		iconToolService.resettingSize();
 	}
 
-	/**
-	 * @Title: saveConfigure
+	/** 
+	 * @Title: saveConfigure 
 	 * @Description: 保存配置
 	 */
 	@FXML
@@ -183,8 +183,8 @@ public class IconToolController extends IconToolView {
 		iconToolService.saveConfigure();
 	}
 
-	/**
-	 * @Title: otherSaveConfigureAction
+	/** 
+	 * @Title: otherSaveConfigureAction 
 	 * @Description: 配置另存为
 	 */
 	@FXML
@@ -192,8 +192,8 @@ public class IconToolController extends IconToolView {
 		iconToolService.otherSaveConfigureAction();
 	}
 
-	/**
-	 * @Title: loadingConfigureAction
+	/** 
+	 * @Title: loadingConfigureAction 
 	 * @Description: 加载配置
 	 */
 	@FXML
@@ -201,8 +201,8 @@ public class IconToolController extends IconToolView {
 		iconToolService.loadingConfigureAction();
 	}
 
-	/**
-	 * @Title: buildIconAction
+	/** 
+	 * @Title: buildIconAction 
 	 * @Description: 生成图片
 	 */
 	@FXML
@@ -213,8 +213,8 @@ public class IconToolController extends IconToolView {
 			TooltipUtil.showToast(e.getMessage());
 		}
 	}
-	/**
-	 * @Title: buildIconTargetImageAction
+	/** 
+	 * @Title: buildIconTargetImageAction 
 	 * @Description: 生成预览图片
 	 */
 	@FXML

@@ -6,6 +6,7 @@ import com.xwintop.xJavaFxTool.services.debugTools.KafkaToolService;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.debugTools.KafkaToolView;
 import com.xwintop.xcore.base.XProperty;
+import com.xwintop.xcore.util.javafx.AlertUtil;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -25,8 +26,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.activemq.ActiveMQSession;
 import org.springframework.context.annotation.Lazy;
 
@@ -35,8 +34,12 @@ import javax.jms.Session;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@Slf4j
-@Setter
+/**
+ * @ClassName: KafkaToolController
+ * @Description: kafka调试工具
+ * @author: xufeng
+ * @date: 2018/2/5 17:05
+ */
 @Getter
 @Lazy
 @FXMLController
@@ -44,19 +47,12 @@ public class KafkaToolController extends KafkaToolView {
 	private KafkaToolService kafkaToolService = new KafkaToolService(this);
 	private ObservableList<KafkaToolTableBean> tableData = FXCollections.observableArrayList();
 	private ObservableList<KafkaToolReceiverTableBean> receiverTableData = FXCollections.observableArrayList();
-	private String[] messageTypeStrings = new String[] { "TextMessage", "ObjectMessage", "BytesMessage", "MapMessage",
-			"StreamMessage" };
+	private String[] messageTypeStrings = new String[] { "TextMessage" };
 	private String[] quartzChoiceBoxStrings = new String[] { "简单表达式", "Cron表达式" };
-	@SuppressWarnings("unchecked")
-	private XProperty<Integer>[] receiverAcknowledgeModeChoiceBoxValues = new XProperty[] {
-			new XProperty<Integer>("SESSION_TRANSACTED", Session.SESSION_TRANSACTED),
-			new XProperty<Integer>("AUTO_ACKNOWLEDGE", Session.AUTO_ACKNOWLEDGE),
-			new XProperty<Integer>("CLIENT_ACKNOWLEDGE", Session.CLIENT_ACKNOWLEDGE),
-			new XProperty<Integer>("DUPS_OK_ACKNOWLEDGE", Session.DUPS_OK_ACKNOWLEDGE),
-			new XProperty<Integer>("INDIVIDUAL_ACKNOWLEDGE", ActiveMQSession.INDIVIDUAL_ACKNOWLEDGE) };
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		AlertUtil.showInfoAlert("该工具未完善，谢谢！！！");
 		initService();
 		initView();
 		initEvent();
@@ -103,8 +99,6 @@ public class KafkaToolController extends KafkaToolView {
 	}
 
 	private void initReceiverView() {
-		receiverAcknowledgeModeChoiceBox.getItems().addAll(receiverAcknowledgeModeChoiceBoxValues);
-		receiverAcknowledgeModeChoiceBox.setValue(receiverAcknowledgeModeChoiceBoxValues[4]);
 		receiverMessageIDTableColumn
 				.setCellValueFactory(new PropertyValueFactory<KafkaToolReceiverTableBean, String>("messageID"));
 		receiverQueueTableColumn

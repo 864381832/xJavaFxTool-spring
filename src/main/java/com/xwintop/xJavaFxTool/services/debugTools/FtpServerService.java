@@ -28,6 +28,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @ClassName: FtpServerService
+ * @Description: Ftp服务器
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:29
+ */
+
 @Getter
 @Setter
 @Slf4j

@@ -11,6 +11,14 @@ import org.apache.commons.lang3.time.DateUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
+
+/**
+ * @ClassName: TimeToolService
+ * @Description: Time转换工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:36
+ */
 
 @Getter
 @Setter
@@ -26,14 +34,17 @@ public class TimeToolService {
     //时间字符转字符戳
     public void convert() {
         String curTimeFormatter = timeToolController.getChoiceBoxTimeFormatter().getValue();
+        TimeZone curTimeZone = TimeZone.getTimeZone(timeToolController.getChoiceBoxTimeZone().getValue());
         String timeStr = timeToolController.getTextFileldTimeStr().getText().trim();
         if (StringUtils.isBlank(timeStr)) {
             timeToolController.getTextAreaResult().setText("没有输入时间字符！");
             return;
         }
         try {
-//            timeToolController.getTextFileldTimeStr2().setText(Long.toString(new SimpleDateFormat(curTimeFormatter).parse(timeStr).getTime()));
-            timeToolController.getTextFileldTimeStr2().setText(Long.toString(DateUtils.parseDate(timeStr, curTimeFormatter).getTime()));
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(curTimeFormatter);
+            simpleDateFormat.setTimeZone(curTimeZone);
+            timeToolController.getTextFileldTimeStr2().setText(Long.toString(simpleDateFormat.parse(timeStr).getTime()));
+//            timeToolController.getTextFileldTimeStr2().setText(Long.toString(DateUtils.parseDate(timeStr, curTimeFormatter).getTime()));
             timeToolController.getTextAreaResult().setText("转换成功！");
             TooltipUtil.showToast("转换成功");
         } catch (Exception e) {
@@ -45,6 +56,7 @@ public class TimeToolService {
     //字符戳转时间字符
     public void revert() {
         String curTimeFormatter = timeToolController.getChoiceBoxTimeFormatter().getValue();
+        TimeZone curTimeZone = TimeZone.getTimeZone(timeToolController.getChoiceBoxTimeZone().getValue());
         String timestamp = timeToolController.getTextFileldTimeStr2().getText().trim();
         if (StringUtils.isBlank(timestamp)) {
             timeToolController.getTextAreaResult().setText("没有输入时间戳！");
@@ -52,7 +64,7 @@ public class TimeToolService {
         }
         try {
             timeToolController.getTextFileldTimeStr()
-                    .setText(DateFormatUtils.format(Long.parseLong(timestamp), curTimeFormatter));
+                    .setText(DateFormatUtils.format(Long.parseLong(timestamp), curTimeFormatter, curTimeZone));
             timeToolController.getTextAreaResult().setText("转换成功！");
             TooltipUtil.showToast("转换成功");
         } catch (Exception e) {

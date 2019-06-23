@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Lazy;
 
@@ -32,6 +33,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ * @ClassName: QRCodeBuilderController
+ * @Description: 二维码生成工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:26
+ */
+
+@Slf4j
 @Lazy
 @FXMLController
 public class QRCodeBuilderController extends QRCodeBuilderView {
@@ -175,5 +184,19 @@ public class QRCodeBuilderController extends QRCodeBuilderView {
             contentTextField.setText(code);
         }
         Platform.setImplicitExit(true);
+    }
+
+    /**
+     * 父控件被移除前调用
+     */
+    public void onCloseRequest(javafx.event.Event event) {
+        try {
+            if (provider != null) {
+                provider.reset();
+                provider.stop();
+            }
+        } catch (Exception e) {
+            log.error("停止快捷键监听失败：", e);
+        }
     }
 }

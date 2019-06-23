@@ -1,20 +1,20 @@
 package com.xwintop.xJavaFxTool.controller.debugTools;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javax.jms.JMSException;
-import javax.jms.Session;
-
-import de.felixroske.jfxsupport.FXMLController;
-import org.apache.activemq.ActiveMQSession;
-
 import com.xwintop.xJavaFxTool.model.ActiveMqToolReceiverTableBean;
 import com.xwintop.xJavaFxTool.model.ActiveMqToolTableBean;
 import com.xwintop.xJavaFxTool.services.debugTools.ActiveMqToolService;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.debugTools.ActiveMqToolView;
 import com.xwintop.xcore.base.XProperty;
+
+import de.felixroske.jfxsupport.FXMLController;
+import org.apache.activemq.ActiveMQSession;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javax.jms.JMSException;
+import javax.jms.Session;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -35,6 +35,13 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import lombok.Getter;
 import org.springframework.context.annotation.Lazy;
+
+/**
+ * @ClassName: ActiveMqToolController
+ * @Description: ActiveMq调试工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:21
+ */
 
 @Getter
 @Lazy

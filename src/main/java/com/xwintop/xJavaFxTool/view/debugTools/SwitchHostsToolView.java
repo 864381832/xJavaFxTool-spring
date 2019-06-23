@@ -7,6 +7,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeView;
 import lombok.Getter;
 import lombok.Setter;
+import org.fxmisc.richtext.CodeArea;
+
+/**
+ * @ClassName: SwitchHostsToolView
+ * @Description: 切换Hosts工具
+ * @author: xufeng
+ * @date: 2018/1/31 15:18
+ */
 
 @Getter
 @Setter
@@ -22,6 +30,7 @@ public abstract class SwitchHostsToolView implements Initializable {
     @FXML
     protected TreeView<String> hostFileTreeView;
     @FXML
-    protected TextArea hostTextArea;
+//    protected TextArea hostTextArea;
+    protected CodeArea hostTextArea;
 
 }

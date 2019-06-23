@@ -1,5 +1,6 @@
 package com.xwintop.xJavaFxTool.controller;
 
+import com.xwintop.xJavaFxTool.common.logback.ConsoleLogAppender;
 import com.xwintop.xJavaFxTool.model.ToolFxmlLoaderConfiguration;
 import com.xwintop.xJavaFxTool.services.IndexService;
 import com.xwintop.xJavaFxTool.utils.Config;
@@ -7,6 +8,7 @@ import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.utils.SpringUtil;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xJavaFxTool.view.IndexView;
+import com.xwintop.xcore.util.HttpClientUtil;
 import com.xwintop.xcore.util.javafx.AlertUtil;
 import de.felixroske.jfxsupport.AbstractFxmlView;
 import de.felixroske.jfxsupport.FXMLController;
@@ -18,15 +20,13 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 
@@ -188,6 +188,45 @@ public class IndexController extends IndexView {
 		}
 	}
 
+	@FXML
+	private void addNodepadAction(ActionEvent event) {
+		TextArea textArea = new TextArea();
+		textArea.setFocusTraversable(true);
+		if (singleWindowBootCheckBox.isSelected()) {
+			JavaFxViewUtil.getNewStage(this.bundle.getString("addNodepad"), null, textArea);
+		} else {
+			Tab tab = new Tab(this.bundle.getString("addNodepad"));
+			tab.setContent(textArea);
+			tabPaneMain.getTabs().add(tab);
+			if (event != null) {
+				tabPaneMain.getSelectionModel().select(tab);
+			}
+		}
+	}
+
+	@FXML
+	private void addLogConsoleAction(ActionEvent event) {
+		TextArea textArea = new TextArea();
+		textArea.setFocusTraversable(true);
+		ConsoleLogAppender.textAreaList.add(textArea);
+		if (singleWindowBootCheckBox.isSelected()) {
+			Stage newStage = JavaFxViewUtil.getNewStage(this.bundle.getString("addLogConsole"), null, textArea);
+			newStage.setOnCloseRequest(event1 -> {
+				ConsoleLogAppender.textAreaList.remove(textArea);
+			});
+		} else {
+			Tab tab = new Tab(this.bundle.getString("addLogConsole"));
+			tab.setContent(textArea);
+			tabPaneMain.getTabs().add(tab);
+			if (event != null) {
+				tabPaneMain.getSelectionModel().select(tab);
+			}
+			tab.setOnCloseRequest((Event event1) -> {
+				ConsoleLogAppender.textAreaList.remove(textArea);
+			});
+		}
+	}
+
 	/**
 	 * @Title: addContent
 	 * @Description: 添加Content内容
@@ -199,8 +238,8 @@ public class IndexController extends IndexView {
 			AbstractFxmlView fxmlView = SpringUtil.getBean(viewClass);
 			if(singleWindowBootCheckBox.isSelected()){
 //				Main.showView(viewClass, Modality.NONE);
-//				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView.getView());
-				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView);
+				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView.getView());
+//				JavaFxViewUtil.getNewStage(title,iconPath, fxmlView);
 				return;
 			}
 			Tab tab = new Tab(title);
@@ -293,5 +332,10 @@ public class IndexController extends IndexView {
 	private void setLanguageAction(ActionEvent event) throws Exception {
 		MenuItem menuItem = (MenuItem) event.getSource();
 		indexService.setLanguageAction(menuItem.getText());
+	}
+
+	@FXML
+	private void xwintopLinkOnAction(ActionEvent event) throws Exception {
+		HttpClientUtil.openBrowseURLThrowsException("https://gitee.com/xwintop/xJavaFxTool-spring");
 	}
 }

@@ -3,6 +3,7 @@ package com.xwintop.xJavaFxTool.controller.codeTools;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.lang.StringEscapeUtils;
 
@@ -85,6 +86,12 @@ public class EscapeCharacterController extends EscapeCharacterView {
 					helpTextArea.setText(ESCAPE_HELP_CSV);
 				}
 			}
+		});
+		JavaFxViewUtil.setPropertyAddChangeListener(unescapeTextArea, () -> {
+			switchAction(null);
+		});
+		JavaFxViewUtil.setPropertyAddChangeListener(escapeTextArea, () -> {
+			restoreAction(null);
 		});
 	}
 

@@ -21,6 +21,13 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import java.io.File;
 import java.util.*;
 
+/**
+ * @ClassName: SmsToolService
+ * @Description: 短信群发工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:35
+ */
+
 @Getter
 @Setter
 @Slf4j
@@ -216,10 +223,10 @@ public class SmsToolService {
             String templateCode = smsToolController.getAliyunTemplateCodeTextField().getText();
             String templateParam = smsToolController.getAliyunTemplateParamTextArea().getText();
 
-            Map<String, String> paras = new HashMap<String, String>();
+            java.util.Map<String, String> paras = new java.util.HashMap<String, String>();
             // 1. 系统参数
             paras.put("SignatureMethod", "HMAC-SHA1");
-            paras.put("SignatureNonce", UUID.randomUUID().toString());
+            paras.put("SignatureNonce", java.util.UUID.randomUUID().toString());
             paras.put("AccessKeyId", accessKeyId);
             paras.put("SignatureVersion", "1.0");
             paras.put("Timestamp", DateFormatUtils.format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'", new SimpleTimeZone(0, "GMT")));
@@ -238,10 +245,10 @@ public class SmsToolService {
             //可选:outId为提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者
 //        paras.put("OutId", "123");
             // 4. 参数KEY排序
-            TreeMap<String, String> sortParas = new TreeMap<String, String>();
+            java.util.TreeMap<String, String> sortParas = new java.util.TreeMap<String, String>();
             sortParas.putAll(paras);
             // 5. 构造待签名的字符串
-            Iterator<String> it = sortParas.keySet().iterator();
+            java.util.Iterator<String> it = sortParas.keySet().iterator();
             StringBuilder sortQueryStringTmp = new StringBuilder();
             while (it.hasNext()) {
                 String key = it.next();

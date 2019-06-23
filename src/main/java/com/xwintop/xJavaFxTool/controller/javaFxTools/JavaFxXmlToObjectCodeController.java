@@ -12,6 +12,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import org.springframework.context.annotation.Lazy;
 
+/**
+ * @ClassName: JavaFxXmlToObjectCodeController
+ * @Description: javaFx Xml转对象工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:24
+ */
+
 @Lazy
 @FXMLController
 public class JavaFxXmlToObjectCodeController implements Initializable {

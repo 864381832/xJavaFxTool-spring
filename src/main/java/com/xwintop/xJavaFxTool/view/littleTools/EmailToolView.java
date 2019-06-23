@@ -1,14 +1,29 @@
 package com.xwintop.xJavaFxTool.view.littleTools;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.xwintop.xJavaFxTool.model.EmailToolTableBean;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.web.HTMLEditor;
 import lombok.Getter;
 import lombok.Setter;
+import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
+import com.jfoenix.controls.JFXComboBox;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.HTMLEditor;
 
 import java.util.Map;
 

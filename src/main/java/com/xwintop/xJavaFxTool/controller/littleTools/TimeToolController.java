@@ -1,6 +1,7 @@
 package com.xwintop.xJavaFxTool.controller.littleTools;
 
 import com.xwintop.xJavaFxTool.services.littleTools.TimeToolService;
+import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.littleTools.TimeToolView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.TimeZone;
 
 /**
  * @ClassName: TimeToolController
@@ -47,6 +49,8 @@ public class TimeToolController extends TimeToolView {
     }
 
     private void initView() {
+        choiceBoxTimeZone.getItems().addAll(TimeZone.getAvailableIDs());
+        choiceBoxTimeZone.setValue(TimeZone.getDefault().getID());
         choiceBoxTimeFormatter.getItems().addAll(timeFormatter);
         choiceBoxTimeFormatter.getSelectionModel().select(0);
         textFileldTimeStr.setText(new SimpleDateFormat(choiceBoxTimeFormatter.getValue()).format(new Date()));
@@ -59,7 +63,8 @@ public class TimeToolController extends TimeToolView {
     }
 
     private void initService() {
-
+        JavaFxViewUtil.setPropertyAddChangeListener(textFileldTimeStr, this::convert);
+        JavaFxViewUtil.setPropertyAddChangeListener(textFileldTimeStr2, this::revert);
     }
 
     @FXML

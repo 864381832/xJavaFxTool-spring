@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="522.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xwintop.xJavaFxTool.controller.debugTools.ActiveMqToolController">
+<AnchorPane prefHeight="522.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xwintop.xJavaFxTool.controller.debugTools.ActiveMqToolController">
    <children>
       <BorderPane layoutX="14.0" layoutY="7.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <top>
@@ -85,7 +85,7 @@
                                     <Insets />
                                  </opaqueInsets>
                                  <VBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets />
                                  </VBox.margin>
                               </HBox>
                               <TableView fx:id="tableViewMain" editable="true" VBox.vgrow="ALWAYS">
@@ -138,6 +138,9 @@
                                  </VBox.margin>
                               </HBox>
                            </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
                         </VBox>
                      </content>
                 </Tab>
@@ -190,9 +193,6 @@
                <BorderPane.margin>
                   <Insets top="5.0" />
                </BorderPane.margin>
-               <padding>
-                  <Insets bottom="5.0" />
-               </padding>
             </TabPane>
          </center>
       </BorderPane>

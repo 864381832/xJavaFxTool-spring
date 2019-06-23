@@ -2,6 +2,7 @@ package com.xwintop.xJavaFxTool.services.javaFxTools;
 
 import com.xwintop.xcore.util.StrUtil;
 
+import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author: xufeng
  * @date: 2017年11月10日 下午5:41:35  
  */
+@Slf4j
 public class JavaFxXmlToObjectCodeService {
 	public static String[] xmlToCode(String xmlStr) throws Exception {
 		StringBuilder attrStrBuilder = new StringBuilder();// 创建属性值获取
@@ -38,6 +40,7 @@ public class JavaFxXmlToObjectCodeService {
 		controllerClassStrBuilder.append("import com.xwintop.xJavaFxTool.services"+viewPackage+"."+classNameString+"Service;\n");
 		controllerClassStrBuilder.append("import lombok.Getter;\n");
 		controllerClassStrBuilder.append("import lombok.Setter;\n");
+		controllerClassStrBuilder.append("import lombok.extern.slf4j.Slf4j;\n");
 		controllerClassStrBuilder.append("import java.net.URL;\n");
 		controllerClassStrBuilder.append("import java.util.ResourceBundle;\n");
 		controllerClassStrBuilder.append("import javafx.event.ActionEvent;\n");
@@ -83,6 +86,7 @@ public class JavaFxXmlToObjectCodeService {
 		serviceClassStrBuilder.append("import com.xwintop.xJavaFxTool.controller"+viewPackage+"."+classNameString+"Controller;\n");
 		serviceClassStrBuilder.append("import lombok.Getter;\n");
 		serviceClassStrBuilder.append("import lombok.Setter;\n");
+		serviceClassStrBuilder.append("import lombok.extern.slf4j.Slf4j;\n");
 		serviceClassStrBuilder.append("@Getter\n@Setter\n@Slf4j\n");
 		serviceClassStrBuilder.append("public class "+classNameString+"Service{\n");
 		serviceClassStrBuilder.append("private "+classNameString+"Controller "+classNameStringLoCase+"Controller;\n");

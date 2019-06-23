@@ -34,6 +34,13 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import org.springframework.context.annotation.Lazy;
 
+/**
+ * @ClassName: CronExpBuilderController
+ * @Description: Cron表达式生成工具
+ * @author: xufeng
+ * @date: 2018/1/21 0021 1:08
+ */
+
 @Lazy
 @FXMLController
 public class CronExpBuilderController extends CronExpBuilderView {

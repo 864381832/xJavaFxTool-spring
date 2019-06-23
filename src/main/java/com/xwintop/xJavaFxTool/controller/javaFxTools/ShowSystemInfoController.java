@@ -3,10 +3,6 @@ package com.xwintop.xJavaFxTool.controller.javaFxTools;
 import cn.hutool.core.thread.ThreadUtil;
 import com.xwintop.xJavaFxTool.services.javaFxTools.ShowSystemInfoService;
 import com.xwintop.xJavaFxTool.view.javaFxTools.ShowSystemInfoView;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,11 +13,14 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 
-/** 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
  * @ClassName: ShowSystemInfoController
  * @Description: 显示系统信息
  * @author: xufeng
- * @date: 2017/11/28 22:16  
+ * @date: 2017/11/28 22:16
  */
 @Getter
 @Setter

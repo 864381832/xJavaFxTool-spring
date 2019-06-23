@@ -1,199 +1,296 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<ToolFxmlLoaderConfiguration title="javaFxTools"
-		menuId="javaFxTools" resourceBundleName="locale.Menu" isMenu="true" />
-	<ToolFxmlLoaderConfiguration title="codeTools"
-		menuId="codeTools" isMenu="true" />
-	<ToolFxmlLoaderConfiguration title="debugTools"
-		menuId="debugTools" isMenu="true" />
-	<ToolFxmlLoaderConfiguration title="epmsTools"
-		menuId="epmsTools" isMenu="true" />
-	<ToolFxmlLoaderConfiguration title="littleTools"
-		menuId="littleTools" isMenu="true" />
-	<ToolFxmlLoaderConfiguration title="developTools"
-		menuId="developTools" isMenu="true" />
-	<ToolFxmlLoaderConfiguration title="webTools"
-		menuId="webTools" isMenu="true" />
-	<ToolFxmlLoaderConfiguration
-		className="com.xwintop.xJavaFxTool.fxmlView.javaFxTools.JavaFxXmlToObjectCodeView" resourceBundleName=""
-		title="JavaFxXmlToObjectCode" iconPath="/images/icon.jpg"
-		menuParentId="javaFxTools" controllerType="Node" />
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.epmsTools.GeneratingCodeView</className>
-		<resourceBundleName></resourceBundleName>
-		<title>GeneratingCode</title>
-		<isDefaultShow></isDefaultShow>
-		<menuParentId>epmsTools</menuParentId>
-		<controllerType>Node</controllerType>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration className="com.xwintop.xJavaFxTool.fxmlView.epmsTools.DebugEpmsView"
-		title="DebugEpms" menuParentId="epmsTools" />
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.LinuxPathToWindowsPathView</className>
-		<title>LinuxPathToWindowsPath</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.epmsTools.MessageViewerView</className>
-		<title>MessageViewer</title>
-		<menuParentId>epmsTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.TimeToolView</className>
-		<title>TimeTool</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.CharacterConverterView</className>
-		<title>CharacterConverter</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.EncryptAndDecryptView</className>
-		<title>EncryptAndDecrypt</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.CronExpBuilderView</className>
-		<title>CronExpBuilder</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.FileCopyView</className>
-		<title>FileCopy</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.QRCodeBuilderView</className>
-		<title>QRCodeBuilder</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.IdCardGeneratorView</className>
-		<title>IdCardGenerator</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.RegexTesterView</className>
-		<title>RegexTester</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.webTools.ShortURLView</className>
-		<title>ShortURL</title>
-		<menuParentId>webTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.EscapeCharacterView</className>
-		<title>EscapeCharacter</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.ZHConverterView</className>
-		<title>ZHConverter</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.ActiveMqToolView</className>
-		<title>ActiveMqTool</title>
-		<menuParentId>debugTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.IconToolView</className>
-		<title>IconTool</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.HttpToolView</className>
-		<title>HttpTool</title>
-		<menuParentId>debugTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.redisTool.RedisToolView</className>
-		<title>RedisTool</title>
-		<menuParentId>debugTools</menuParentId>
-		<isDefaultShow></isDefaultShow>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.WebSourcesToolView</className>
-		<title>WebSourcesTool</title>
-		<menuParentId>codeTools</menuParentId>
-		<isDefaultShow>true</isDefaultShow>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.SwitchHostsToolView</className>
-		<title>SwitchHostsTool</title>
-		<menuParentId>debugTools</menuParentId>
-		<isDefaultShow></isDefaultShow>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.FtpServerView</className>
-		<title>FtpServer</title>
-		<menuParentId>debugTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.CmdToolView</className>
-		<title>CmdTool</title>
-		<menuParentId>debugTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.FtpClientToolView</className>
-		<title>FtpClientTool</title>
-		<menuParentId>debugTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.PdfConvertToolView</className>
-		<title>PdfConvertTool</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.developTools.DirectoryTreeToolView</className>
-		<title>DirectoryTreeTool</title>
-		<menuParentId>developTools</menuParentId>
-		<isDefaultShow></isDefaultShow>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.ImageToolView</className>
-		<title>ImageTool</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.javaFxTools.ShowSystemInfoView</className>
-		<title>ShowSystemInfo</title>
-		<menuParentId>javaFxTools</menuParentId>
-		<isDefaultShow></isDefaultShow>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.developTools.AsciiPicToolView</className>
-		<title>AsciiPicTool</title>
-		<menuParentId>developTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.debugTools.KafkaToolView</className>
-		<title>KafkaTool</title>
-		<menuParentId>debugTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.EmailToolView</className>
-		<title>EmailTool</title>
-		<menuParentId>littleTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.codeTools.ColorCodeConverterToolView</className>
-		<title>ColorCodeConverterTool</title>
-		<menuParentId>codeTools</menuParentId>
-	</ToolFxmlLoaderConfiguration>
-	<ToolFxmlLoaderConfiguration>
-		<className>com.xwintop.xJavaFxTool.fxmlView.littleTools.SmsToolView</className>
-		<title>SmsTool</title>
-		<menuParentId>littleTools</menuParentId>
-		<isDefaultShow></isDefaultShow>
-	</ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration title="javaFxTools"
+                                 menuId="javaFxTools" resourceBundleName="locale.Menu" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="codeTools"
+                                 menuId="codeTools" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="debugTools"
+                                 menuId="debugTools" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="epmsTools"
+                                 menuId="epmsTools" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="littleTools"
+                                 menuId="littleTools" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="developTools"
+                                 menuId="developTools" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="webTools"
+                                 menuId="webTools" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="assistTools"
+                                 menuId="assistTools" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration title="games"
+                                 menuId="games" isMenu="true"/>
+    <ToolFxmlLoaderConfiguration
+            url="/com/xwintop/xJavaFxTool/fxmlView/javaFxTools/JavaFxXmlToObjectCode.fxml" resourceBundleName=""
+            className="" title="JavaFxXmlToObjectCode" iconPath="/images/icon.jpg"
+            menuParentId="javaFxTools" controllerType="Node"/>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/epmsTools/GeneratingCode.fxml</url>
+        <resourceBundleName></resourceBundleName>
+        <className></className>
+        <title>GeneratingCode</title>
+        <isDefaultShow></isDefaultShow>
+        <menuId></menuId>
+        <menuParentId>epmsTools</menuParentId>
+        <controllerType>Node</controllerType>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration url="/com/xwintop/xJavaFxTool/fxmlView/epmsTools/DebugEpms.fxml"
+                                 title="DebugEpms" menuParentId="epmsTools"/>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/LinuxPathToWindowsPath.fxml</url>
+        <title>LinuxPathToWindowsPath</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/epmsTools/MessageViewer.fxml</url>
+        <title>MessageViewer</title>
+        <menuParentId>epmsTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/TimeTool.fxml</url>
+        <title>TimeTool</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/CharacterConverter.fxml</url>
+        <title>CharacterConverter</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/EncryptAndDecrypt.fxml</url>
+        <title>EncryptAndDecrypt</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/CronExpBuilder.fxml</url>
+        <title>CronExpBuilder</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/FileCopy.fxml</url>
+        <title>FileCopy</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/QRCodeBuilder.fxml</url>
+        <title>QRCodeBuilder</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/codeTools/IdCardGenerator.fxml</url>
+        <title>IdCardGenerator</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/codeTools/RegexTester.fxml</url>
+        <title>RegexTester</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/webTools/ShortURL.fxml</url>
+        <title>ShortURL</title>
+        <menuParentId>webTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/codeTools/EscapeCharacter.fxml</url>
+        <title>EscapeCharacter</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/ZHConverter.fxml</url>
+        <title>ZHConverter</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/ActiveMqTool.fxml</url>
+        <title>ActiveMqTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/IconTool.fxml</url>
+        <title>IconTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/HttpTool.fxml</url>
+        <title>HttpTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/redisTool/RedisTool.fxml</url>
+        <title>RedisTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/codeTools/WebSourcesTool.fxml</url>
+        <title>WebSourcesTool</title>
+        <menuParentId>codeTools</menuParentId>
+        <isDefaultShow>true</isDefaultShow>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/SwitchHostsTool.fxml</url>
+        <title>SwitchHostsTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/FtpServer.fxml</url>
+        <title>FtpServer</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/CmdTool.fxml</url>
+        <title>CmdTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/FtpClientTool.fxml</url>
+        <title>FtpClientTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/PdfConvertTool.fxml</url>
+        <title>PdfConvertTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/developTools/xTransferTool/TransferTool.fxml</url>
+        <title>TransferTool</title>
+        <menuParentId>developTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/developTools/DirectoryTreeTool.fxml</url>
+        <title>DirectoryTreeTool</title>
+        <menuParentId>developTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/ImageTool.fxml</url>
+        <title>ImageTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/javaFxTools/ShowSystemInfo.fxml</url>
+        <title>ShowSystemInfo</title>
+        <menuParentId>javaFxTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/developTools/AsciiPicTool.fxml</url>
+        <title>AsciiPicTool</title>
+        <menuParentId>developTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/KafkaTool.fxml</url>
+        <title>KafkaTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/EmailTool.fxml</url>
+        <title>EmailTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/codeTools/ColorCodeConverterTool.fxml</url>
+        <title>ColorCodeConverterTool</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/SmsTool.fxml</url>
+        <title>SmsTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/ScriptEngineTool.fxml</url>
+        <title>ScriptEngineTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/FileRenameTool.fxml</url>
+        <title>FileRenameTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/developTools/JsonConvertTool.fxml</url>
+        <title>JsonConvertTool</title>
+        <menuParentId>developTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/assistTools/WechatJumpGameTool.fxml</url>
+        <title>WechatJumpGameTool</title>
+        <menuParentId>assistTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/assistTools/TextToSpeechTool.fxml</url>
+        <title>TextToSpeechTool</title>
+        <menuParentId>assistTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/games/X2048.fxml</url>
+        <title>x2048</title>
+        <menuParentId>games</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/SocketTool.fxml</url>
+        <title>SocketTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/ImageAnalysisTool.fxml</url>
+        <title>ImageAnalysisTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/assistTools/DecompilerWxApkgTool.fxml</url>
+        <title>DecompilerWxApkgTool</title>
+        <menuParentId>assistTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/debugTools/ZookeeperTool.fxml</url>
+        <title>ZookeeperTool</title>
+        <menuParentId>debugTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/ExcelSplitTool.fxml</url>
+        <title>ExcelSplitTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/developTools/PathWatchTool.fxml</url>
+        <title>PathWatchTool</title>
+        <menuParentId>developTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/codeTools/CharsetDetectTool.fxml</url>
+        <title>CharsetDetectTool</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/developTools/ScanPortTool.fxml</url>
+        <title>ScanPortTool</title>
+        <menuParentId>developTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/FileMergeTool.fxml</url>
+        <title>FileMergeTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/littleTools/SedentaryReminderTool.fxml</url>
+        <title>SedentaryReminderTool</title>
+        <menuParentId>littleTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/codeTools/RandomGeneratorTool.fxml</url>
+        <title>RandomGeneratorTool</title>
+        <menuParentId>codeTools</menuParentId>
+    </ToolFxmlLoaderConfiguration>
+    <ToolFxmlLoaderConfiguration>
+        <url>/com/xwintop/xJavaFxTool/fxmlView/developTools/ClipboardHistoryTool.fxml</url>
+        <title>ClipboardHistoryTool</title>
+        <menuParentId>developTools</menuParentId>
+        <isDefaultShow></isDefaultShow>
+    </ToolFxmlLoaderConfiguration>
 
-	<ToolFxmlLoaderConfiguration url="/web/littleTools/cron/index.htm"
-		title="webCronExpBuilder" menuParentId="netWorkToolsMenu"
-		controllerType="WebView" />
-	<ToolFxmlLoaderConfiguration url="/web/littleTools/jsonEditor/index.html"
-		title="jsonEditor" menuParentId="netWorkToolsMenu"
-		controllerType="WebView" />
+    <ToolFxmlLoaderConfiguration url="/web/littleTools/cron/index.htm"
+                                 title="webCronExpBuilder" menuParentId="netWorkToolsMenu"
+                                 controllerType="WebView"/>
+    <ToolFxmlLoaderConfiguration url="/web/littleTools/jsonEditor/index.html"
+                                 title="jsonEditor" menuParentId="netWorkToolsMenu"
+                                 controllerType="WebView"/>
 </root>

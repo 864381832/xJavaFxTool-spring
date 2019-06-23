@@ -12,6 +12,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.springframework.context.annotation.Lazy;
 
+/**
+ * @ClassName: IdCardGeneratorController
+ * @Description: 身份证生成工具
+ * @author: xufeng
+ * @date: 2018/1/21 0021 1:03
+ */
+
 @Lazy
 @FXMLController
 public class IdCardGeneratorController {

@@ -1,6 +1,5 @@
 package com.xwintop.xJavaFxTool.controller.debugTools.redisTool;
 
-import com.xwintop.xJavaFxTool.fxmlView.debugTools.redisTool.RedisToolDialogView;
 import com.xwintop.xJavaFxTool.services.debugTools.redisTool.RedisToolDataTableService;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 
@@ -10,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import com.xwintop.xJavaFxTool.utils.SpringUtil;
-import de.felixroske.jfxsupport.FXMLController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,12 +29,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Lazy;
 
 @Getter
 @Setter
-@Lazy
-@FXMLController
 public class RedisToolDialogController implements Initializable
 {
     @FXML
@@ -62,24 +56,21 @@ public class RedisToolDialogController implements Initializable
     private Stage dialogStage;
 
 
-//    public static FXMLLoader getFXMLLoader()
-//    {
-//        URL url = Object.class.getResource("/fxml/debugTools/redisTool/RedisToolDialog.fxml");
-//        FXMLLoader fXMLLoader = new FXMLLoader(url);
-//        return fXMLLoader;
-//    }
+    public static FXMLLoader getFXMLLoader()
+    {
+        URL url = Object.class.getResource("/com/xwintop/xJavaFxTool/fxmlView/debugTools/redisTool/RedisToolDialog.fxml");
+        FXMLLoader fXMLLoader = new FXMLLoader(url);
+        return fXMLLoader;
+    }
 
     public static RedisToolDialogController getRedisToolDialogController(String title, boolean type)
     {
-        RedisToolDialogView redisToolDataTableView = SpringUtil.getBean(RedisToolDialogView.class);
-
-//        FXMLLoader fXMLLoader = RedisToolDialogController.getFXMLLoader();
+        FXMLLoader fXMLLoader = RedisToolDialogController.getFXMLLoader();
         Parent loginNode;
         Stage dialogStage = null;
-//        try
-//        {
-//            loginNode = fXMLLoader.load();
-            loginNode = redisToolDataTableView.getView();
+        try
+        {
+            loginNode = fXMLLoader.load();
             dialogStage = new Stage();
             dialogStage.setTitle("添加"+title+"数据");
             dialogStage.initModality(Modality.APPLICATION_MODAL);
@@ -88,12 +79,11 @@ public class RedisToolDialogController implements Initializable
             dialogStage.setMaximized(false);
             dialogStage.setResizable(false);
             dialogStage.show();
-//        } catch (IOException e)
-//        {
-//            e.printStackTrace();
-//        }
-//        RedisToolDialogController redisToolDialogController = fXMLLoader.getController();
-        RedisToolDialogController redisToolDialogController = (RedisToolDialogController) redisToolDataTableView.getPresenter();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        RedisToolDialogController redisToolDialogController = fXMLLoader.getController();
         redisToolDialogController.setDialogType(type);
         redisToolDialogController.setDialogStage(dialogStage);
         redisToolDialogController.setTitle(title);

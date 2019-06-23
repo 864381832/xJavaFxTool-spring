@@ -5,9 +5,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import com.xwintop.xJavaFxTool.Main;
-import com.xwintop.xJavaFxTool.fxmlView.IndexView;
-import com.xwintop.xJavaFxTool.utils.Config;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
 
@@ -28,15 +25,12 @@ public class IndexService {
 		FileUtils.touch(file);
 		PropertiesConfiguration xmlConfigure = new PropertiesConfiguration(file);
 		if ("简体中文".equals(languageType)) {
-			Config.defaultLocale = Locale.SIMPLIFIED_CHINESE;
 			xmlConfigure.setProperty("Locale", Locale.SIMPLIFIED_CHINESE);
 		} else if ("English".equals(languageType)) {
-			Config.defaultLocale = Locale.US;
 			xmlConfigure.setProperty("Locale", Locale.US);
 		}
 		xmlConfigure.save();
 		AlertUtil.showInfoAlert(bundle.getString("SetLanguageText"));
-		Main.showView(IndexView.class);
 	}
 
 	public ContextMenu getSelectContextMenu(String selectText) {

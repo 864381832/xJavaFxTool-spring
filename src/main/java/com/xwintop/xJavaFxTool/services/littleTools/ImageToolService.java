@@ -17,6 +17,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @ClassName: ImageToolService
+ * @Description: 图片压缩工具Service
+ * @author: xufeng
+ * @date: 2017/12/28 0028 23:28
+ */
 @Getter
 @Setter
 @Slf4j

@@ -3,6 +3,7 @@ package com.xwintop.xJavaFxTool.fxmlView;
 import com.jfoenix.controls.JFXDecorator;
 import com.xwintop.xJavaFxTool.utils.Config;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
+import com.xwintop.xcore.util.javafx.AlertUtil;
 import de.felixroske.jfxsupport.AbstractFxmlView;
 import de.felixroske.jfxsupport.FXMLView;
 import de.felixroske.jfxsupport.GUIState;
@@ -32,7 +33,11 @@ public class IndexView extends AbstractFxmlView {
     @Override
     public Parent getView() {
         JFXDecorator decorator = JavaFxViewUtil.getJFXDecorator(GUIState.getStage(),GUIState.getStage().getTitle() + Config.xJavaFxToolVersions,"/images/icon.jpg",super.getView());
-        decorator.setOnCloseButtonAction(()->{System.exit(0);});
+        decorator.setOnCloseButtonAction(() -> {
+            if (AlertUtil.showConfirmAlert("确定要退出吗？")) {
+                System.exit(0);
+            }
+        });
         return decorator;
     }
 }

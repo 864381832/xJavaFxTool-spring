@@ -7,6 +7,7 @@ import com.xwintop.xcore.util.FileUtil;
 import com.xwintop.xcore.util.javafx.FileChooserUtil;
 import com.xwintop.xcore.util.javafx.TooltipUtil;
 
+import de.felixroske.jfxsupport.FXMLController;
 import org.apache.commons.io.FileUtils;
 
 import java.awt.image.BufferedImage;
@@ -17,7 +18,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import de.felixroske.jfxsupport.FXMLController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;

@@ -3,12 +3,15 @@ package com.xwintop.xJavaFxTool;
 import com.xwintop.xJavaFxTool.fxmlView.IndexView;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
+import com.xwintop.xcore.util.javafx.AlertUtil;
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
 import de.felixroske.jfxsupport.GUIState;
 import de.felixroske.jfxsupport.SplashScreen;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -42,6 +45,16 @@ public class Main extends AbstractJavaFxApplicationSupport {
         super.beforeInitialView(stage, ctx);
         Scene scene = JavaFxViewUtil.getJFXDecoratorScene(stage, "", null, new AnchorPane());
         stage.setScene(scene);
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                if (AlertUtil.showConfirmAlert("确定要退出吗？")) {
+                    System.exit(0);
+                } else {
+                    event.consume();
+                }
+            }
+        });
         GUIState.setScene(scene);
     }
 }

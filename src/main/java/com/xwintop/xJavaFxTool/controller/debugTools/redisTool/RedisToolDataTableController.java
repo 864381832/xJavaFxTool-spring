@@ -34,11 +34,11 @@ public class RedisToolDataTableController extends RedisToolDataTableView {
 	private RedisUtil redisUtil;
 	private ObservableList<RedisToolDataTableBean> tableData = FXCollections.observableArrayList();
 
-//	public static FXMLLoader getFXMLLoader() {
-//		FXMLLoader fXMLLoader = new FXMLLoader(
-//				IndexController.class.getResource("/fxml/debugTools/redisTool/RedisToolDataTable.fxml"));
-//		return fXMLLoader;
-//	}
+	public static FXMLLoader getFXMLLoader() {
+		FXMLLoader fXMLLoader = new FXMLLoader(
+				IndexController.class.getResource("/com/xwintop/xJavaFxTool/fxmlView/debugTools/redisTool/RedisToolDataTable.fxml"));
+		return fXMLLoader;
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

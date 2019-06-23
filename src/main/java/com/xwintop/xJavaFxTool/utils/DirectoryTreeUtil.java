@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileFilter;
 import java.util.*;
 import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +23,7 @@ import lombok.Setter;
 public class DirectoryTreeUtil {
 	private File generateFile;// 初始文件夹
 	/* 换行符 */
-	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 	/* 空字符串 */
 	private static final String EMPTY = "";
 	/* 文件连接符 */
@@ -166,5 +168,33 @@ public class DirectoryTreeUtil {
 				this.appendContents.add(0, to);
 			}
 		}
+	}
+
+	/**
+	 * 判断文件(夹)名是否满足匹配.
+	 */
+	public static boolean ifMatchText(String fileName, String csText, String ncsText, boolean sRegex, Pattern csPattern, Pattern ncsPattern) {
+		boolean match = true;
+		String lFileName = fileName.toLowerCase();
+		String lcsText = csText.toLowerCase();
+		String lncsText = ncsText.toLowerCase();
+		if (sRegex) {
+			if (csText.length() != 0) {
+				Matcher m = csPattern.matcher(fileName);
+				match = m.find();
+			}
+			if (match && ncsText.length() != 0) {
+				Matcher m = ncsPattern.matcher(fileName);
+				match = !m.find();
+			}
+		} else {
+			if (csText.length() != 0) {
+				match = lFileName.contains(lcsText);
+			}
+			if (match && ncsText.length() != 0) {
+				match = !lFileName.contains(lncsText);
+			}
+		}
+		return match;
 	}
 }

@@ -1,19 +1,18 @@
 package com.xwintop.xJavaFxTool.controller.debugTools.redisTool;
 
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
-
-import de.felixroske.jfxsupport.FXMLController;
-import org.apache.commons.lang3.StringUtils;
-
 import com.xwintop.xJavaFxTool.controller.IndexController;
 import com.xwintop.xJavaFxTool.services.debugTools.redisTool.RedisToolDataViewService;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.view.debugTools.redisTool.RedisToolDataViewView;
 import com.xwintop.xcore.util.RedisUtil;
 import com.xwintop.xcore.util.javafx.AlertUtil;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,12 +24,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Lazy;
 
 @Getter
 @Setter
-@Lazy
-@FXMLController
 public class RedisToolDataViewController extends RedisToolDataViewView {
 	private RedisToolDataViewService redisToolDataViewService = new RedisToolDataViewService(this);
 	private RedisUtil redisUtil;
@@ -38,11 +34,11 @@ public class RedisToolDataViewController extends RedisToolDataViewView {
 	private ObservableList<Map<String, String>> valueMapTableData = FXCollections.observableArrayList();
 	private ObservableList<Map<String, String>> valueListTableData = FXCollections.observableArrayList();
 
-//	public static FXMLLoader getFXMLLoader() {
-//		FXMLLoader fXMLLoader = new FXMLLoader(
-//				IndexController.class.getResource("/fxml/debugTools/redisTool/RedisToolDataView.fxml"));
-//		return fXMLLoader;
-//	}
+	public static FXMLLoader getFXMLLoader() {
+		FXMLLoader fXMLLoader = new FXMLLoader(
+				IndexController.class.getResource("/com/xwintop/xJavaFxTool/fxmlView/debugTools/redisTool/RedisToolDataView.fxml"));
+		return fXMLLoader;
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

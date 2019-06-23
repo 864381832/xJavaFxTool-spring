@@ -2,6 +2,7 @@ package com.xwintop.xJavaFxTool.services.debugTools;
 
 import com.xwintop.xJavaFxTool.controller.debugTools.KafkaToolController;
 import com.xwintop.xJavaFxTool.job.KafkaToolJob;
+import com.xwintop.xJavaFxTool.manager.ScheduleManager;
 import com.xwintop.xJavaFxTool.model.KafkaToolReceiverTableBean;
 import com.xwintop.xJavaFxTool.model.KafkaToolTableBean;
 import com.xwintop.xJavaFxTool.utils.ConfigureUtil;
@@ -13,25 +14,32 @@ import javafx.stage.FileChooser;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.activemq.command.ActiveMQBytesMessage;
-import org.apache.activemq.command.ActiveMQMapMessage;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.quartz.*;
-import org.quartz.impl.StdSchedulerFactory;
+import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.kafka.common.serialization.StringSerializer;
 
-import javax.jms.*;
+import javax.jms.Message;
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.function.Consumer;
+
+/**
+ * @ClassName: KafkaToolService
+ * @Description: Kafka调试工具
+ * @author: xufeng
+ * @date: 2019/4/25 0025 23:33
+ */
 
 @Getter
 @Setter
@@ -39,9 +47,7 @@ import java.util.function.Consumer;
 public class KafkaToolService {
     private KafkaToolController kafkaToolController;
     private String fileName = "KafkaToolConfigure.properties";
-    private SchedulerFactory sf = new StdSchedulerFactory();
-    private String schedulerKeyGroup = "runFileCopy";
-    private String schedulerKeyName = "runFileCopy" + System.currentTimeMillis();
+    private ScheduleManager scheduleManager = new ScheduleManager();
     private Map<String, Message> receiverMessageMap = new HashMap<String, Message>();
 
     public void saveConfigure() throws Exception {
@@ -102,72 +108,47 @@ public class KafkaToolService {
 
     public void sendAction() {
         Properties props = new Properties();
-        props.put("bootstrap.servers", kafkaToolController.getUrlTextField().getText().trim());
-        props.put("acks", "all");
-        props.put("retries", 0);
-        props.put("batch.size", 16384);
-        props.put("linger.ms", 1);
-        props.put("buffer.memory", 33554432);
-        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaToolController.getUrlTextField().getText().trim());
+        props.put(ProducerConfig.ACKS_CONFIG, "all");
+        props.put(ProducerConfig.RETRIES_CONFIG, 0);
+        props.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
+        props.put(ProducerConfig.LINGER_MS_CONFIG, 1);
+        props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432);
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         for (KafkaToolTableBean tableBean : kafkaToolController.getTableData()) {
             if (tableBean.getIsSend()) {
                 int sendNumber = Integer.parseInt(tableBean.getSendNumber());
-//                ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
-//                        kafkaToolController.getUserNameTextField().getText(),
-//                        kafkaToolController.getPasswordTextField().getText(),
-//                        "tcp://" + kafkaToolController.getUrlTextField().getText().trim());
                 Producer<String, String> producer = new KafkaProducer<>(props);
                 try {
                     for (int i = 0; i < sendNumber; i++) {
-                        producer.send(new ProducerRecord<>(tableBean.getQueue(), tableBean.getMessageType() , tableBean.getMessage()));
+                        producer.send(new ProducerRecord<>(tableBean.getQueue(), null, tableBean.getMessage()));
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("发送失败：", e);
                     TooltipUtil.showToast("发送失败：" + e.getMessage());
                 } finally {
-                   producer.close();
+                    producer.close();
                 }
             }
         }
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
     public boolean runQuartzAction(String quartzType, String cronText, int interval, int repeatCount) throws Exception {
-        JobDetail jobDetail = JobBuilder.newJob(KafkaToolJob.class).withIdentity(schedulerKeyName, schedulerKeyGroup)
-                .build();
-        jobDetail.getJobDataMap().put("kafkaToolService", this);
-        ScheduleBuilder scheduleBuilder = null;
         if ("简单表达式".equals(quartzType)) {
-            scheduleBuilder = SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(interval)// 时间间隔
-                    .withRepeatCount(repeatCount);// 重复次数（将执行6次）
+            scheduleManager.runQuartzAction(KafkaToolJob.class, this, interval, repeatCount);
         } else if ("Cron表达式".equals(quartzType)) {
             if (StringUtils.isEmpty(cronText)) {
                 TooltipUtil.showToast("cron表达式不能为空。");
                 return false;
             }
-            scheduleBuilder = CronScheduleBuilder.cronSchedule(cronText);
-        }
-        // 描叙触发Job执行的时间触发规则,Trigger实例化一个触发器
-        Trigger trigger = TriggerBuilder.newTrigger()// 创建一个新的TriggerBuilder来规范一个触发器
-                .withIdentity(schedulerKeyName, schedulerKeyGroup)// 给触发器一个名字和组名
-                .startNow()// 立即执行
-                .withSchedule(scheduleBuilder).build();// 产生触发器
-
-        // 运行容器，使用SchedulerFactory创建Scheduler实例
-        Scheduler scheduler = sf.getScheduler();
-        // 向Scheduler添加一个job和trigger
-        scheduler.scheduleJob(jobDetail, trigger);
-        if (!scheduler.isStarted()) {
-            scheduler.start();
+            scheduleManager.runQuartzAction(KafkaToolJob.class, this, cronText);
         }
         return true;
     }
 
     public boolean stopQuartzAction() throws Exception {
-        Scheduler sched = sf.getScheduler();
-        sched.unscheduleJob(new TriggerKey(schedulerKeyName, schedulerKeyGroup));
-        sched.deleteJob(new JobKey(schedulerKeyName, schedulerKeyGroup));
+        scheduleManager.stopQuartzAction();
         return true;
     }
 
@@ -176,47 +157,6 @@ public class KafkaToolService {
      * @Description: receiver端监听消息
      */
     public void receiverMessageListenerAction() {
-//        // Session： 一个发送或接收消息的线程
-//        Session session;
-//        // Destination ：消息的目的地;消息发送给谁.
-//        Destination destination;
-//        // 消费者，消息接收者
-//        MessageConsumer consumer;
-//        connectionFactory = new ActiveMQConnectionFactory(kafkaToolController.getUserNameTextField().getText(),
-//                kafkaToolController.getPasswordTextField().getText(),
-//                "tcp://" + kafkaToolController.getUrlTextField().getText().trim());
-//        try {
-//            if (connection != null) {
-//                connection.close();
-//            }
-//            // 构造从工厂得到连接对象
-//            connection = connectionFactory.createConnection();
-//            // 启动
-//            connection.start();
-//            // 获取操作连接
-//            session = connection.createSession(Boolean.FALSE, kafkaToolController
-//                    .getReceiverAcknowledgeModeChoiceBox().getValue().getBean());
-//            // 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在Kafka的console配置
-//            String queue = kafkaToolController.getReceiverQueueTextField().getText();
-//            destination = session.createQueue(queue);
-//            consumer = session.createConsumer(destination);
-//            kafkaToolController.getReceiverTableData().clear();
-//            receiverMessageMap.clear();
-//            consumer.setMessageListener(new MessageListener() {// 有事务限制
-//                @Override
-//                public void onMessage(Message message) {
-//                    addReceiverTableBean(message);
-//                    // try {
-//                    // session.commit();
-//                    // } catch (JMSException e) {
-//                    // e.printStackTrace();
-//                    // }
-//                }
-//            });
-//        } catch (Exception e) {
-//            log.error(e.getMessage());
-//            TooltipUtil.showToast(e.getMessage());
-//        }
     }
 
     public void receiverMessageStopListenerAction() {
@@ -230,84 +170,36 @@ public class KafkaToolService {
 //        }
     }
 
-    private void addReceiverTableBean(Message message) {
-        String queue = kafkaToolController.getReceiverQueueTextField().getText();
-        String messageType = "TextMessage";
-        String messageSring = null;
-        boolean isAcknowledge = false;
-        try {
-            if (message instanceof TextMessage) {
-                messageType = "TextMessage";
-                messageSring = ((TextMessage) message).getText();
-            } else if (message instanceof ObjectMessage) {
-                messageType = "ObjectMessage";
-                messageSring = ((ObjectMessage) message).getObject().toString();
-            } else if (message instanceof BytesMessage) {
-                messageType = "BytesMessage";
-                messageSring = new String(((ActiveMQBytesMessage) message).getContent().getData());
-            } else if (message instanceof MapMessage) {
-                messageType = "MapMessage";
-                messageSring = ((ActiveMQMapMessage) message).getContentMap().toString();
-            } else if (message instanceof StreamMessage) {
-                messageType = "StreamMessage";
-                messageSring = ((StreamMessage) message).readString();
-            }
-            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(message.getJMSTimestamp()));
-            KafkaToolReceiverTableBean kafkaToolReceiverTableBean = new KafkaToolReceiverTableBean(
-                    message.getJMSMessageID(), queue, messageSring, messageType, timestamp, isAcknowledge);
-            kafkaToolController.getReceiverTableData().add(kafkaToolReceiverTableBean);
-            receiverMessageMap.put(message.getJMSMessageID(), message);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
-    }
-
     /**
      * @Title: receiverPullMessageAction
      * @Description: receiver端拉取消息
      */
     @FXML
     public void receiverPullMessageAction() {
-//        // Session： 一个发送或接收消息的线程
-//        Session session;
-//        // Destination ：消息的目的地;消息发送给谁.
-//        Destination destination;
-//        // 消费者，消息接收者
-//        MessageConsumer consumer;
-//        connectionFactory = new ActiveMQConnectionFactory(kafkaToolController.getUserNameTextField().getText(),
-//                kafkaToolController.getPasswordTextField().getText(),
-//                "tcp://" + kafkaToolController.getUrlTextField().getText().trim());
-//        try {
-//            if (connection != null) {
-//                connection.close();
-//            }
-//            // 构造从工厂得到连接对象
-//            connection = connectionFactory.createConnection();
-//            // 启动
-//            connection.start();
-//            // 获取操作连接
-//            // session = connection.createSession(Boolean.FALSE,
-//            // Session.AUTO_ACKNOWLEDGE);
-//            session = connection.createSession(Boolean.FALSE, kafkaToolController
-//                    .getReceiverAcknowledgeModeChoiceBox().getValue().getBean());
-//            // 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在Kafka的console配置
-//            String queue = kafkaToolController.getReceiverQueueTextField().getText();
-//            destination = session.createQueue(queue);
-//            consumer = session.createConsumer(destination);
-//            kafkaToolController.getReceiverTableData().clear();
-//            receiverMessageMap.clear();
-//            while (true) {
-//                // 设置接收者接收消息的时间，为了便于测试，这里谁定为100s
-//                Message message = consumer.receive(1000);
-//                if (null == message) {
-//                    break;
-//                }
-//                addReceiverTableBean(message);
-//            }
-//        } catch (Exception e) {
-//            log.error(e.getMessage());
-//            TooltipUtil.showToast(e.getMessage());
-//        }
+        Properties props = new Properties();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaToolController.getUrlTextField().getText().trim());
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaToolController.getGroupIdTextField().getText().trim());
+        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
+        props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 180000);
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, 5242880);
+        props.put(ConsumerConfig.REQUEST_TIMEOUT_MS_CONFIG, 305000);
+        props.put("pollTimeoutms", 5000);
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 3);
+        KafkaConsumer consumer = new KafkaConsumer(props);
+        consumer.subscribe(Arrays.asList(kafkaToolController.getReceiverQueueTextField().getText().trim()));
+        ConsumerRecords<String, String> records = consumer.poll(0);
+        for (ConsumerRecord<String, String> record : records) {
+//            log.info("offset = %d, key = %s, value = %s", record.offset(), record.key(), record.value());
+            log.info("msgValue" + record.value());
+            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(record.timestamp()));
+            KafkaToolReceiverTableBean kafkaToolReceiverTableBean = new KafkaToolReceiverTableBean(
+                    record.key(), record.topic(), record.value(), "String", timestamp, false);
+            kafkaToolController.getReceiverTableData().add(kafkaToolReceiverTableBean);
+        }
+        consumer.commitAsync();
     }
 
     public KafkaToolService(KafkaToolController kafkaToolController) {

@@ -44,6 +44,7 @@ import java.util.ResourceBundle;
 public class FtpClientToolController extends FtpClientToolView {
     private FtpClientToolService ftpClientToolService = new FtpClientToolService(this);
     private ObservableList<FtpClientToolTableBean> tableData = FXCollections.observableArrayList();
+    private String[] connectionTypeChoiceBoxStrings = new String[]{"FTP", "SFTP over SSH", "FTP using implicit SSL", "FTP using explicit SSL(Auth SSL)", "FTP using explicit SSL(Auth TLS)"};
     private String[] quartzChoiceBoxStrings = new String[]{"简单表达式", "Cron表达式"};
     private String[] typeChoiceBoxStrings = new String[]{"上传", "下载", "删除文件", "删除文件夹"};
 
@@ -56,8 +57,7 @@ public class FtpClientToolController extends FtpClientToolView {
 
     private void initView() {
         ftpClientToolService.loadingConfigure();
-        isEnabledTableColumn
-                .setCellValueFactory(new PropertyValueFactory<FtpClientToolTableBean, Boolean>("isEnabled"));
+        isEnabledTableColumn.setCellValueFactory(new PropertyValueFactory<FtpClientToolTableBean, Boolean>("isEnabled"));
         isEnabledTableColumn.setCellFactory(CheckBoxTableCell.forTableColumn(isEnabledTableColumn));
 
         localFileTableColumn.setCellValueFactory(new PropertyValueFactory<FtpClientToolTableBean, String>("localFile"));
@@ -66,8 +66,7 @@ public class FtpClientToolController extends FtpClientToolView {
             t.getRowValue().setLocalFile(t.getNewValue());
         });
 
-        serverFileTableColumn
-                .setCellValueFactory(new PropertyValueFactory<FtpClientToolTableBean, String>("serverFile"));
+        serverFileTableColumn.setCellValueFactory(new PropertyValueFactory<FtpClientToolTableBean, String>("serverFile"));
         serverFileTableColumn.setCellFactory(TextFieldTableCell.<FtpClientToolTableBean>forTableColumn());
         serverFileTableColumn.setOnEditCommit((CellEditEvent<FtpClientToolTableBean, String> t) -> {
             t.getRowValue().setServerFile(t.getNewValue());
@@ -129,6 +128,9 @@ public class FtpClientToolController extends FtpClientToolView {
 
         tableViewMain.setItems(tableData);
 
+        connectionTypeChoiceBox.getItems().addAll(connectionTypeChoiceBoxStrings);
+        connectionTypeChoiceBox.setValue(connectionTypeChoiceBoxStrings[0]);
+
         quartzChoiceBox.getItems().addAll(quartzChoiceBoxStrings);
         quartzChoiceBox.setValue(quartzChoiceBoxStrings[0]);
 
@@ -144,7 +146,7 @@ public class FtpClientToolController extends FtpClientToolView {
             try {
                 saveConfigure(null);
             } catch (Exception e) {
-                log.error("保存配置失败", e);
+                log.error("报错配置失败", e);
             }
         });
         tableViewMain.setOnMouseClicked(event -> {
