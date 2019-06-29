@@ -13,17 +13,17 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 
 下载试用地址：
 
-可直接运行的jar包（本地需要有jdk1.8环境）[xJavaFxTool-spring-0.1.3.jar](https://files.gitee.com/group1/M00/07/F1/PaAvDFz1DJqAIGMmBJNIAuSdRms334.jar?token=0f3342ceae8149d39900f7bc7f928ac3&ts=1559573504&attname=xJavaFxTool-spring-0.1.3.jar)
+可直接运行的jar包（本地需要有jdk1.8环境）[xJavaFxTool-spring-0.1.4.jar](https://dev.tencent.com/s/4b3eee09-482c-4269-83e9-fc9c1068baf5)
 
-Windows x86安装包（兼容xp、windows7、8、10等系统）[xJavaFxTool-spring-0.1.3-windows-x86.exe](https://dev.tencent.com/s/67307b7d-4478-433e-b53c-df116a3f7efd)
+Windows x86安装包（兼容xp、windows7、8、10等系统）[xJavaFxTool-spring-0.1.4-windows-x86.exe](https://dev.tencent.com/s/c3537a14-5528-4d6c-a605-2375e1810d3a)
 
-Windows x64安装包（兼容xp、windows7、8、10等系统）[xJavaFxTool-spring-0.1.3-windows-x64.exe](https://dev.tencent.com/s/e6ad1bf1-f3ff-410a-9259-cc4ab1c3c3c5)
+Windows x64安装包（兼容xp、windows7、8、10等系统）[xJavaFxTool-spring-0.1.4-windows-x64.exe](https://dev.tencent.com/s/d0ee7c9f-8611-432c-b445-b61fc6aad5f1)
 
-Linux x64 [xJavaFxTool-spring-0.1.3-linux-x64.zip](https://dev.tencent.com/s/fd9de129-c347-417d-ad90-a0cb6ce55c90) （Linux平台64位运行压缩包，解压即可运行）
+Linux x64 [xJavaFxTool-spring-0.1.4-linux-x64.zip](https://dev.tencent.com/s/6100efc7-fd3f-404c-a528-fed3d32b016c) （Linux平台64位运行压缩包，解压即可运行）
 
-Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.dmg](https://dev.tencent.com/s/e5b4ebfa-c2a8-4f4f-a8ac-285fae9cd0fa)
+Mac OS X x64 [xJavaFxTool-spring-0.1.4-macosx-x64.dmg](https://dev.tencent.com/s/b566b428-da9c-4cab-972a-35831cace479)
 
-Mac OS X x64 [xJavaFxTool-spring-0.1.3-macosx-x64.pkg](https://dev.tencent.com/s/2fd2ca47-5e4b-478a-86d1-b136f763a74b)
+Mac OS X x64 [xJavaFxTool-spring-0.1.4-macosx-x64.pkg](https://dev.tencent.com/s/68633719-cf9b-41f0-b3e0-7a7ec9d51d01)
 
 若上面下链接失效可使用下面下载链接：
 
