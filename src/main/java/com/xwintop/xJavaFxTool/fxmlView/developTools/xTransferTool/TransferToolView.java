@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Scope;
 
 @Scope("prototype")
 @Lazy
-@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/developTools/xTransferTool/TransferToolTool.fxml")
-public class TransferToolToolView extends AbstractFxmlView {
+@FXMLView(value = "/com/xwintop/xJavaFxTool/fxmlView/developTools/xTransferTool/TransferTool.fxml")
+public class TransferToolView extends AbstractFxmlView {
 }

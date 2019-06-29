@@ -25,14 +25,13 @@
     <ToolFxmlLoaderConfiguration>
         <className>com.xwintop.xJavaFxTool.fxmlView.epmsTools.GeneratingCodeView</className>
         <resourceBundleName></resourceBundleName>
-        <className></className>
         <title>GeneratingCode</title>
         <isDefaultShow></isDefaultShow>
         <menuId></menuId>
         <menuParentId>epmsTools</menuParentId>
         <controllerType>Node</controllerType>
     </ToolFxmlLoaderConfiguration>
-    <ToolFxmlLoaderConfiguration url="com.xwintop.xJavaFxTool.fxmlView.epmsTools.DebugEpmsView"
+    <ToolFxmlLoaderConfiguration className="com.xwintop.xJavaFxTool.fxmlView.epmsTools.DebugEpmsView"
                                  title="DebugEpms" menuParentId="epmsTools"/>
     <ToolFxmlLoaderConfiguration>
         <className>com.xwintop.xJavaFxTool.fxmlView.littleTools.LinuxPathToWindowsPathView</className>
@@ -115,7 +114,7 @@
         <menuParentId>debugTools</menuParentId>
     </ToolFxmlLoaderConfiguration>
     <ToolFxmlLoaderConfiguration>
-        <className>com.xwintop.xJavaFxTool.fxmlView.debugTools.redisTool/RedisToolView</className>
+        <className>com.xwintop.xJavaFxTool.fxmlView.debugTools.redisTool.RedisToolView</className>
         <title>RedisTool</title>
         <menuParentId>debugTools</menuParentId>
     </ToolFxmlLoaderConfiguration>
@@ -151,7 +150,7 @@
         <menuParentId>littleTools</menuParentId>
     </ToolFxmlLoaderConfiguration>
     <ToolFxmlLoaderConfiguration>
-        <className>com.xwintop.xJavaFxTool.fxmlView.developTools.xTransferTool/TransferToolView</className>
+        <className>com.xwintop.xJavaFxTool.fxmlView.developTools.xTransferTool.TransferToolView</className>
         <title>TransferTool</title>
         <menuParentId>developTools</menuParentId>
     </ToolFxmlLoaderConfiguration>
