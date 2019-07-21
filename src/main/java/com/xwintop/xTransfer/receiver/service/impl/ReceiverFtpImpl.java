@@ -149,7 +149,7 @@ public class ReceiverFtpImpl implements Receiver {
                 // use the tmpPath to be a temporary directory
                 // or read the file directly is there is no tmpPath.
                 if (hasTmpPath) {
-                    if (tmpPath != null && !tmpPath.trim().equals("")) {
+                    if (tmpPath != null && !"".equals(tmpPath.trim())) {
                         if (ftpUtil.rename(file.getName(), tmpPath + fileName)) {
                             fileName = tmpPath + fileName;
                             removeFlag = true;
@@ -201,7 +201,7 @@ public class ReceiverFtpImpl implements Receiver {
                             }
                         } else {
                             //execute move file to dist directory
-                            if (hasTmpPath && tmpPath != null && !tmpPath.trim().equals("")) {
+                            if (hasTmpPath && tmpPath != null && !"".equals(tmpPath.trim())) {
                                 ftpUtil.rename(tmpPath + file.getName(), file.getName());
                             } else {
                                 ftpUtil.rename(fileName, file.getName());
@@ -215,7 +215,7 @@ public class ReceiverFtpImpl implements Receiver {
                     log.error("receiverFtp异常:", e);
                     // rename the temp file to the remote path when error
                     if (removeFlag) {
-                        if (hasTmpPath && tmpPath != null && !tmpPath.trim().equals("")) {
+                        if (hasTmpPath && tmpPath != null && !"".equals(tmpPath.trim())) {
                             ftpUtil.rename(tmpPath + file.getName(), file.getName());
                         } else {
                             ftpUtil.rename(fileName, file.getName());

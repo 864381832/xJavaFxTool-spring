@@ -101,7 +101,7 @@ public class SenderSftpImpl implements Sender {
             channel.rm(path + fileName);
         }
         String tmpFileName = fileName + postfixName;
-        if (tmp == null || tmp.trim().equals("")) {
+        if (tmp == null || "".equals(tmp.trim())) {
             tmp = path;
             tmpFileName = fileName;
         }

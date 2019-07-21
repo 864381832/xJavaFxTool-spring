@@ -486,6 +486,8 @@ public class X2048Service {
                     AfterMove();
                 }
                 break;
+            default:
+                break;
         }
 
     }
