@@ -1,0 +1,5 @@
+# Default ignored files
+#/.gitignore
+/xJavaFxTool-spring.iml
+/logs
+/target
