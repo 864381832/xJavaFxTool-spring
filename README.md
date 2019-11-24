@@ -13,7 +13,7 @@
 		<img src="https://img.shields.io/badge/JDK-1.8+-green.svg" ></img>
 	</a>
 	<a target="_blank" href="https://gitee.com/xwintop/xJavaFxTool-spring/stargazers">
-		<img src='https://gitee.com/xwintop/xJavaFxTool/badge/star.svg?theme=dark' alt='gitee star'></img>
+		<img src='https://gitee.com/xwintop/xJavaFxTool-spring/badge/star.svg?theme=dark' alt='gitee star'></img>
 	</a>
 	<a target="_blank" href='https://github.com/864381832/xJavaFxTool-spring'>
 		<img src="https://img.shields.io/github/stars/864381832/xJavaFxTool-spring.svg?style=social" alt="github star"></img>
