@@ -3,6 +3,7 @@ package com.xwintop.xJavaFxTool.utils;
 import com.sun.javafx.tk.TKStage;
 import com.sun.jna.LastErrorException;
 import com.sun.jna.Native;
+import com.sun.jna.Platform;
 import com.sun.jna.Pointer;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
@@ -30,13 +31,15 @@ public class StageUtils {
 
     // update default javafx stage style
     public static void updateStageStyle(Stage stage) {
-        Pointer pointer = getWindowPointer(stage);
-        WinDef.HWND hwnd = new WinDef.HWND(pointer);
+        if (Platform.isWindows()) {
+            Pointer pointer = getWindowPointer(stage);
+            WinDef.HWND hwnd = new WinDef.HWND(pointer);
 
-        final User32 user32 = User32.INSTANCE;
-        int oldStyle = user32.GetWindowLong(hwnd, WinUser.GWL_STYLE);
-        int newStyle = oldStyle | 0x00020000; // WS_MINIMIZEBOX
-        user32.SetWindowLong(hwnd, WinUser.GWL_STYLE, newStyle);
+            final User32 user32 = User32.INSTANCE;
+            int oldStyle = user32.GetWindowLong(hwnd, WinUser.GWL_STYLE);
+            int newStyle = oldStyle | 0x00020000; // WS_MINIMIZEBOX
+            user32.SetWindowLong(hwnd, WinUser.GWL_STYLE, newStyle);
+        }
     }
 
     private static Pointer getWindowPointer(Stage stage) {
