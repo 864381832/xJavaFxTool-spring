@@ -2,11 +2,13 @@ package com.xwintop.xJavaFxTool;
 
 import com.xwintop.xJavaFxTool.fxmlView.IndexView;
 import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
+import com.xwintop.xJavaFxTool.utils.StageUtils;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xcore.util.javafx.AlertUtil;
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
 import de.felixroske.jfxsupport.GUIState;
 import de.felixroske.jfxsupport.SplashScreen;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -56,5 +58,8 @@ public class Main extends AbstractJavaFxApplicationSupport {
             }
         });
         GUIState.setScene(scene);
+        Platform.runLater(() -> {
+            StageUtils.updateStageStyle(GUIState.getStage());
+        });
     }
 }
