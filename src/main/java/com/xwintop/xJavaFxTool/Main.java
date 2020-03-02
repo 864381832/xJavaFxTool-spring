@@ -1,10 +1,10 @@
 package com.xwintop.xJavaFxTool;
 
 import com.xwintop.xJavaFxTool.fxmlView.IndexView;
-import com.xwintop.xJavaFxTool.utils.JavaFxViewUtil;
 import com.xwintop.xJavaFxTool.utils.StageUtils;
 import com.xwintop.xJavaFxTool.utils.XJavaFxSystemUtil;
 import com.xwintop.xcore.util.javafx.AlertUtil;
+import com.xwintop.xcore.util.javafx.JavaFxViewUtil;
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
 import de.felixroske.jfxsupport.GUIState;
 import de.felixroske.jfxsupport.SplashScreen;

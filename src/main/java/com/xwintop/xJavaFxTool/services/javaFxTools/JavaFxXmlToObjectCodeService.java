@@ -3,19 +3,16 @@ package com.xwintop.xJavaFxTool.services.javaFxTools;
 import com.xwintop.xcore.util.StrUtil;
 
 import lombok.extern.slf4j.Slf4j;
-import org.dom4j.Document;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
-import org.dom4j.Node;
+import org.dom4j.*;
 import org.dom4j.tree.DefaultAttribute;
 
 import java.util.List;
 
-/** 
- * @ClassName: JavaFxXmlToObjectCodeService 
+/**
+ * @ClassName: JavaFxXmlToObjectCodeService
  * @Description: JavaFxXml生成代码工具类
  * @author: xufeng
- * @date: 2017年11月10日 下午5:41:35  
+ * @date: 2017年11月10日 下午5:41:35
  */
 @Slf4j
 public class JavaFxXmlToObjectCodeService {
@@ -28,12 +25,12 @@ public class JavaFxXmlToObjectCodeService {
 		getCodeByElement(root,attrStrBuilder,funStrBuilder,classNameStrBuilder);
 
 		String[] packageString = classNameStrBuilder.toString().split("controller");
-		
+
 		String[] packageStringSplit = packageString[1].split("\\.");
 		String classNameString = packageStringSplit[packageStringSplit.length-1].split("Controller")[0];
 		String classNameStringLoCase = StrUtil.fristToLoCase(classNameString);
 		String viewPackage = packageString[1].substring(0, packageString[1].lastIndexOf("."));
-		
+
 		StringBuilder controllerClassStrBuilder = new StringBuilder();//控制层类字符串
 		controllerClassStrBuilder.append("package com.xwintop.xJavaFxTool.controller"+viewPackage+";\n");
 		controllerClassStrBuilder.append("import com.xwintop.xJavaFxTool.view"+viewPackage+"."+classNameString+"View;\n");
@@ -61,8 +58,8 @@ public class JavaFxXmlToObjectCodeService {
 		controllerClassStrBuilder.append("\n private void initService() {}");
 		controllerClassStrBuilder.append(funStrBuilder.toString());
 		controllerClassStrBuilder.append("}");
-		
-		
+
+
 		StringBuilder classStrBuilder = new StringBuilder();//视图view类字符串
 		classStrBuilder.append("package com.xwintop.xJavaFxTool.view"+viewPackage+";\n");
 		classStrBuilder.append("import lombok.Getter;\n");
@@ -80,7 +77,7 @@ public class JavaFxXmlToObjectCodeService {
 		classStrBuilder.append("public abstract class "+classNameString+"View implements Initializable {\n");
 		classStrBuilder.append(attrStrBuilder.toString());
 		classStrBuilder.append("\n}");
-		
+
 		StringBuilder serviceClassStrBuilder = new StringBuilder();//控制层类字符串
 		serviceClassStrBuilder.append("package com.xwintop.xJavaFxTool.services"+viewPackage+";\n");
 		serviceClassStrBuilder.append("import com.xwintop.xJavaFxTool.controller"+viewPackage+"."+classNameString+"Controller;\n");
@@ -93,14 +90,13 @@ public class JavaFxXmlToObjectCodeService {
 		serviceClassStrBuilder.append("public "+classNameString+"Service("+classNameString+"Controller "+classNameStringLoCase+"Controller) {\n");
 		serviceClassStrBuilder.append("this."+classNameStringLoCase+"Controller = "+classNameStringLoCase+"Controller;\n}\n");
 		serviceClassStrBuilder.append("}");
-		
+
 		return new String[]{controllerClassStrBuilder.toString(),classStrBuilder.toString(),serviceClassStrBuilder.toString()};
 	}
 
-	@SuppressWarnings("unchecked")
 	private static void getCodeByElement(Element root,StringBuilder attrStrBuilder,StringBuilder funStrBuilder,StringBuilder classNameStrBuilder) {
-		List<DefaultAttribute> rootAttrList = root.attributes();
-		for (DefaultAttribute rootAttr : rootAttrList) {
+		List<Attribute> rootAttrList = root.attributes();
+		for (Attribute rootAttr : rootAttrList) {
 			if("id".equals(rootAttr.getName())){
 //				@FXML
 //				private TextField textField1;

@@ -10,7 +10,9 @@ import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinUser;
 import com.sun.jna.win32.StdCallLibrary;
 import com.sun.jna.win32.W32APIOptions;
+import com.xwintop.xJavaFxTool.utils.Config.Keys;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
 
@@ -21,11 +23,15 @@ import java.lang.reflect.Method;
  * @date: 2020/1/2 15:56
  */
 
+@Slf4j
 public class StageUtils {
 
     static interface ExtUser32 extends StdCallLibrary, User32 {
+
         ExtUser32 INSTANCE = (ExtUser32) Native.loadLibrary("user32", ExtUser32.class, W32APIOptions.DEFAULT_OPTIONS);
-        LRESULT CallWindowProcW(Pointer lpWndProc, Pointer hWnd, int msg, WPARAM wParam, LPARAM lParam);
+
+        WinDef.LRESULT CallWindowProcW(Pointer lpWndProc, Pointer hWnd, int msg, WinDef.WPARAM wParam, WinDef.LPARAM lParam);
+
         int SetWindowLong(HWND hWnd, int nIndex, com.sun.jna.Callback wndProc) throws LastErrorException;
     }
 
@@ -55,6 +61,53 @@ public class StageUtils {
         } catch (Throwable e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    //加载Stage边框位置
+    public static void loadPrimaryStageBound(Stage stage) {
+        try {
+            if (!Config.getBoolean(Keys.RememberWindowLocation, true)) {
+                return;
+            }
+
+            double left = Config.getDouble(Keys.MainWindowLeft, -1);
+            double top = Config.getDouble(Keys.MainWindowTop, -1);
+            double width = Config.getDouble(Keys.MainWindowWidth, -1);
+            double height = Config.getDouble(Keys.MainWindowHeight, -1);
+
+            if (left > 0) {
+                stage.setX(left);
+            }
+            if (top > 0) {
+                stage.setY(top);
+            }
+            if (width > 0) {
+                stage.setWidth(width);
+            }
+            if (height > 0) {
+                stage.setHeight(height);
+            }
+        } catch (Exception e) {
+            log.error("初始化界面位置失败：", e);
+        }
+    }
+
+    //保存Stage边框位置
+    public static void savePrimaryStageBound(Stage stage) {
+        if (!Config.getBoolean(Keys.RememberWindowLocation, true)) {
+            return;
+        }
+        if (stage == null || stage.isIconified()) {
+            return;
+        }
+        try {
+            Config.set(Keys.MainWindowLeft, stage.getX());
+            Config.set(Keys.MainWindowTop, stage.getY());
+            Config.set(Keys.MainWindowWidth, stage.getWidth());
+            Config.set(Keys.MainWindowHeight, stage.getHeight());
+        } catch (Exception e) {
+            log.error("初始化界面位置失败：", e);
         }
     }
 }

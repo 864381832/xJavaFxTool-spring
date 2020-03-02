@@ -13,6 +13,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.web.WebView?>
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xwintop.xJavaFxTool.controller.IndexController">
 	<children>
       <BorderPane layoutY="2.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
@@ -25,6 +27,7 @@
                         <items>
                               <MenuItem mnemonicParsing="false" onAction="#closeAllTabAction" text="%closeAllTab" />
                               <MenuItem mnemonicParsing="false" onAction="#openAllTabAction" text="%openAllTab" />
+                            <MenuItem mnemonicParsing="false" onAction="#pluginManageAction" text="%plugin_manage" />
                               <MenuItem mnemonicParsing="false" onAction="#addNodepadAction" text="%addNodepad" />
                               <MenuItem mnemonicParsing="false" onAction="#addLogConsoleAction" text="%addLogConsole" />
                           <MenuItem mnemonicParsing="false" onAction="#exitAction" text="%Exit" />
@@ -32,8 +35,12 @@
                       </Menu>
                       <Menu fx:id="toolsMenu" mnemonicParsing="false" text="%Tools" />
                         <Menu fx:id="moreToolsMenu" mnemonicParsing="false" text="%More_Tools" />
-                        <Menu fx:id="netWorkToolsMenu" mnemonicParsing="false" text="%NetWork_Tools" />
                       <Menu fx:id="helpMenu" mnemonicParsing="false" text="%Help">
+                          <MenuItem mnemonicParsing="false" onAction="#openLogFileAction" text="%openLogFile" />
+                          <MenuItem mnemonicParsing="false" onAction="#openLogFolderAction" text="%openLogFolder" />
+                          <MenuItem mnemonicParsing="false" onAction="#openConfigFolderAction" text="%openConfigFolder" />
+                          <MenuItem mnemonicParsing="false" onAction="#openPluginFolderAction" text="%openPluginFolder" />
+                          <SeparatorMenuItem />
                         <items>
                               <Menu mnemonicParsing="false" text="%SetLanguage">
                                 <items>
@@ -41,6 +48,8 @@
                                     <MenuItem mnemonicParsing="false" onAction="#setLanguageAction" text="English" />
                                 </items>
                               </Menu>
+                          <MenuItem mnemonicParsing="false" onAction="#userSupportAction" text="%userSupport" />
+                          <MenuItem mnemonicParsing="false" onAction="#SettingAction" text="%Setting" />
                           <MenuItem mnemonicParsing="false" onAction="#aboutAction" text="%About" />
                         </items>
                       </Menu>
@@ -57,6 +66,7 @@
                      </HBox.margin>
                   </Button>
                   <CheckBox fx:id="singleWindowBootCheckBox" mnemonicParsing="false" text="%singleWindowBootCheckBox" />
+                   <WebView fx:id="tongjiWebView" prefHeight="1.0" prefWidth="1.0" visible="false" />
                   <Hyperlink onAction="#xwintopLinkOnAction" text="http://gitee.com/xwintop/xJavaFxTool-spring" textFill="RED" />
                </children>
             </HBox>
