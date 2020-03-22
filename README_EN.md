@@ -1,4 +1,4 @@
-**Gidee address：**[xJavaFxTool-spring](https://gitee.com/xwintop/xJavaFxTool-spring) 
+**Gidee address：**[xJavaFxTool-spring](https://gitee.com/xwintop/xJavaFxTool-spring)
 
 **GitHub address：**[xJavaFxTool-spring](https://github.com/864381832/xJavaFxTool-spring)
 
@@ -101,133 +101,60 @@ Support plug-in development, the plug-in jar package can be automatically loaded
 48. RandomGeneratorTool: random number generation tool (using [hutool](https://hutool.cn) tool)
 49. ClipboardHistoryTool: Clipboard History Tool
 
-##### The transfer tools currently support the following features:
-###### Receiver:
-
-| title | Configuration class name | Description |
-| ------------- | ------------- | ------------- |
-| Fs            | ReceiverConfigFs      | Read a message from a disk file    |
-| Ftp           | ReceiverConfigFtp     | Receive messages using the Ftp/Ftps protocol    |
-| Http          | ReceiverConfigHttp    | Receive messages using the http/https protocol (supports pull mode and provides the Restfull interface mode) |
-| Ftp           | ReceiverConfigFtp     | Receive messages using the Ftp/Ftps protocol   |
-| SFtp          | ReceiverConfigSftp    | Receive messages using the SFtp protocol       |
-| Email         | ReceiverConfigEmail   | Receive messages using the Email protocol          |
-| Jms           | ReceiverConfigJms     | Receive messages using the Jms protocol   |
-| Kafka         | ReceiverConfigKafka   | Receive messages using the Kafka protocol     |
-| IbmMq         | ReceiverConfigIbmMq   | Receive messages using the IbmMq protocol     |
-| RabbitMq      | ReceiverConfigRabbitMq| Receive messages using the RabbitMq protocol     |
-| RocketMq      | ReceiverConfigRocketMq| Receive messages using the RocketMq protocol     |
-| ActiveMq      | ReceiverConfigActiveMq| Receive messages using the ActiveMq protocol     |
-| Hdfs          | ReceiverConfigHdfs    | Receive messages using the HDFS protocol     |
-
-Filter：
-
-| title | Configuration class name | Description |
-| --------      | -----                    | :----  |
-| Backup        | FilterConfigBackup        | Back up messages to the file system   |
-| Compress      | FilterConfigCompress      | Compress the message  |
-| Decompress    | FilterConfigDecompress    | Decompress the message  |
-| EncryptDecrypt| FilterConfigEncryptDecrypt| Encrypt and decrypt the message   |
-| OracleSqlldr  | FilterConfigOracleSqlldr  | Save the message to the Oracle database   |
-| GroovyScript  | FilterConfigGroovyScript  | Will execute the Groovy script    |
-| PythonScript  | FilterConfigPythonScript  | Will execute Python script         |
-| JavaScript    | FilterConfigJavaScript    | Will execute a JavaScript script   |
-| LuaScript     | FilterConfigLuaScript     | Will execute the Lua script        |
-| UnicodeTransformation     | FilterConfigUnicodeTransformation     | Encode the message for conversion   |
-
-Sender：
-
-| title | Configuration class name | Description |
-| --------      | -----                | :----  |
-| Fs            | SenderConfigFs      | Read a message from a disk file  |
-| Ftp           | SenderConfigFtp     | Send messages using the Ftp/Ftps protocol   |
-| Http          | SenderConfigHttp    | Send a message using the http/https protocol  |
-| Ftp           | SenderConfigFtp     | Send messages using the Ftp/Ftps protocol |
-| SFtp          | SenderConfigSftp    | Send messages using the SFtp protocol |
-| Email         | SenderConfigEmail   | Send a message using Email    |
-| Jms           | SenderConfigJms     | Send messages using the Jms protocol |
-| Kafka         | SenderConfigKafka   | Send messages using the Kafka protocol   |
-| IbmMq         | SenderConfigIbmMq   | Send messages using the IbmMq protocol   |
-| RabbitMq      | SenderConfigRabbitMq| Send messages using the RabbitMq protocol   |
-| RocketMq      | SenderConfigRocketMq| Send messages using the RocketMq protocol   |
-| ActiveMq      | SenderConfigActiveMq| Send messages using the ActiveMq protocol   |
-| Hdfs          | SenderConfigHdfs    | Send messages using the HDFS protocol  |
-
 #### In the development of the project, new tools will be added in the future. Welcome everyone to participate and give more comments, thank you.
 #### Plan to add features:
 - [ ] Monitoring function (folder depth, number of Ftp/Ftps/sftp files, mq depth)
 - [ ] Convert excel to sql insert statement
 - [ ] Record keyboard usage gadget
 - [ ] Random file generator (with template engine)
- 
+
 #### Project structure
 
 ```
-xJavaFxTool 
-├─ project ImagesRF Royalty Free Screenshot 
-├─ external storage jar package lib reference 
-├─ libs plugin jar package store 
-├─ pom.xml maven profile 
-├─ README.md documentation 
-├─ src 
-│ ├─ main 
-│ │ ├─ the Java 
-│ │ │ └ com 
-│ │ │  └ ─ xwintop 
-│ │ │   └ ─ ─ xJavaFxTool 
-│ │ │   ├─ common third-party tools 
-│ │ │   ├─ config springBoot configuration class 
-│ │ │   ├─ controller javafx control layer 
-│ │ │   │ ├─ assistTools Auxiliary Tool Control Layer 
-│ │ │   │ ├ ─ codeTools Code Tool Control Layer 
-│ │ │   │ ├─ debugTools Debug Tool Control Layer 
-│ │ │   │ ├─ developTools Development Tool Control Layer 
-│ │ │   │ ├─ epmsTools epms Tool Control Layer 
-│ │ │   │ ├─ javaFxTools javaFx tool control layer 
-│ │ │   │ ├─ littleTools gadget control layer
-│ │ │   │ └ ─ webTools html tool control layer 
-│ │ │   ├─ job timed task processing job 
-│ │ │   ├─ main main function package 
-│ │ │   ├─ manager management 
-│ │ │   ├─ model basic bean class layer 
-│ │ │   ├─ services tool service layer 
-│ │ │   │ ├─ assistTools auxiliary tool service layer 
-│ │ │   │ ├─ codeTools Code tool service layer 
-│ │ │   │ ├─ debugTools debugging tool service layer 
-│ │ │   │ ├─ developTools development tool service layer 
-│ │ │   │ ├─ epmsTools epms tool service layer 
-│ │ │   │ ├─ javaFxTools javaFx tool service layer 
-│ │ │   │ ├─ littleTools gadgets service layer 
-│ │ │   │ └─ webTools html tool service layer 
-│ │ │   ├─ Utils system tools class 
-│ │ │   ├─ view javafx view layer 
-│ │ │   │ ├─ assistTools auxiliary tool view layer 
-│ │ │   │ ├─ codeTools Code tool view layer
-│ │ │   │ ├─ debugTools debugging tool View layer 
-│ │ │   │ ├─ developTools development tools view layer 
-│ │ │   │ ├─ javaFxTools javaFx tool view layer 
-│ │ │   │ ├─ littleTools widget view layer 
-│ │ │   │ └─ webTools html tool view layer 
-│ │ │   └ ─ web web control view layer 
-│ │ └ ─ resources 
-│ │     ├ com 
-│ │     │ └ ─ xwintop 
-│ │     │  └─ xJavaFxTool 
+xJavaFxTool
+├─ project ImagesRF Royalty Free Screenshot
+├─ external storage jar package lib reference
+├─ libs plugin jar package store
+├─ pom.xml maven profile
+├─ README.md documentation
+├─ src
+│ ├─ main
+│ │ ├─ the Java
+│ │ │ └ com
+│ │ │  └ ─ xwintop
+│ │ │   └ ─ ─ xJavaFxTool
+│ │ │   ├─ common third-party tools
+│ │ │   ├─ config springBoot configuration class
+│ │ │   ├─ controller javafx control layer
+│ │ │   │ ├─ javaFxTools javaFx tool control layer
+│ │ │   │ └ ─ webTools html tool control layer
+│ │ │   ├─ job timed task processing job
+│ │ │   ├─ main main function package
+│ │ │   ├─ manager management
+│ │ │   ├─ model basic bean class layer
+│ │ │   ├─ services tool service layer
+│ │ │   │ ├─ javaFxTools javaFx tool service layer
+│ │ │   │ └─ webTools html tool service layer
+│ │ │   ├─ Utils system tools class
+│ │ │   ├─ view javafx view layer
+│ │ │   │ ├─ javaFxTools javaFx tool view layer
+│ │ │   │ └─ webTools html tool view layer
+│ │ └ ─ resources
+│ │     ├ com
+│ │     │ └ ─ xwintop
+│ │     │  └─ xJavaFxTool
 │ │     │   └─ fxmlView .fxml file
-│ │     ├─ Config configuration file 
-│ │     │ └─ toolFxmlLoaderConfiguration.xml system menu loading configuration file 
-│ │     ├─ css style resource 
-│ │     ├─ data data resource 
-│ │     ├─ images image resource 
-│ │     ├─ locale internationalization 
-│ │     ├─ web html tools 
-│ │     ├─ application.yaml SpringBoot configuration file 
+│ │     ├─ Config configuration file
+│ │     │ └─ toolFxmlLoaderConfiguration.xml system menu loading configuration file
+│ │     ├─ css style resource
+│ │     ├─ images image resource
+│ │     ├─ locale internationalization
+│ │     ├─ application.yaml SpringBoot configuration file
 │ │     ├─ banner.txt start banner pictures
-│ │     └─ logback.xml logback log configuration file 
-│ └─ test test class 
-│   ├─ java 
-│   └─ resources 
-├─ xJavaFxTool.jar run the package directly
+│ │     └─ logback.xml logback log configuration file
+│ └─ test test class
+│   ├─ java
+│   └─ resources
 
 ```
 
@@ -249,30 +176,10 @@ From time to time, add the pain points tool that summarizes the requirements in 
 ![输入图片说明](images/加密解密.gif "加密解密.png")
 ![输入图片说明](images/正则表达式生成工具.gif "正则表达式生成工具.png")
 ![输入图片说明](images/二维码生成工具.gif "二维码生成工具.png")
-![输入图片说明](images/Socket调试工具.gif "Socket调试工具.png")
-![输入图片说明](images/json格式化编辑工具.gif "json格式化编辑工具.png")
-![输入图片说明](images/Http调试工具.gif "Http调试工具.png")
 ![输入图片说明](images/随机数生成工具.gif "随机数生成工具.png")
-![输入图片说明](images/字符串转换.gif "字符串转换.png")
 ![输入图片说明](images/Redis连接工具.gif "Redis连接工具.png")
-![输入图片说明](images/Mq调试工具.gif "Mq调试工具.png")
-![输入图片说明](images/zookeeper工具.png "zookeeper工具.png")
-![输入图片说明](images/编码转换.png "编码转换.png")
-![输入图片说明](images/转义字符.gif "转义字符.png")
-![输入图片说明](images/文件列表生成器.gif "文件列表生成器.png")
-![输入图片说明](images/文件复制.png "文件复制.png")
-![输入图片说明](images/Time转换.gif "Time转换.gif")
-![输入图片说明](images/图标生成工具.gif "图标生成工具.png")
-![输入图片说明](images/Ftp服务器.gif "Ftp服务器.png")
 ![输入图片说明](images/图片压缩工具.gif "图片压缩工具.png")
-![输入图片说明](images/Ftp客户端调试工具.gif "Ftp客户端调试工具.png")
-![输入图片说明](images/Pdf转换工具.gif "Pdf转换工具.png")
 ![输入图片说明](images/图片转码工具.gif "图片转码工具.png")
-![输入图片说明](images/Cmd调试工具.png "Cmd调试工具.png")
 ![输入图片说明](images/短信群发工具.gif "短信群发工具.png")
 ![输入图片说明](images/文件重命名工具.gif "文件重命名工具.png")
-![输入图片说明](images/Json转换工具.gif "Json转换工具.png")
-![输入图片说明](images/系统信息.gif "系统信息.gif")
-![输入图片说明](images/Excel拆分工具.gif "Excel拆分工具.png")
-![输入图片说明](images/文件编码检测工具.gif "文件编码检测工具.png")
-![输入图片说明](images/端口扫描工具.gif "端口扫描工具.png")
+![输入图片说明](images/成语字典工具.gif "成语字典工具.png")
