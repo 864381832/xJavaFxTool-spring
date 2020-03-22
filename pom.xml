@@ -4,7 +4,7 @@
 
 	<groupId>com.xwintop</groupId>
 	<artifactId>xJavaFxTool-spring</artifactId>
-	<version>0.1.4</version>
+	<version>0.2.0</version>
 	<packaging>jar</packaging>
 	<name>xJavaFxTool-spring</name>
 	<description>基于JavaFx和SpringBoot搭建的实用小工具集合</description>
@@ -54,7 +54,7 @@
 		<dependency>
 			<groupId>com.xwintop</groupId>
 			<artifactId>xcore</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.4-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>

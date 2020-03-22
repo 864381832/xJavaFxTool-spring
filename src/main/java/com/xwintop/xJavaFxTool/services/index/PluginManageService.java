@@ -1,17 +1,18 @@
 package com.xwintop.xJavaFxTool.services.index;
 
-import static org.apache.commons.lang3.StringUtils.substringBeforeLast;
-
 import com.xwintop.xJavaFxTool.controller.index.PluginManageController;
 import com.xwintop.xJavaFxTool.model.PluginJarInfo;
 import com.xwintop.xJavaFxTool.plugin.PluginManager;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.apache.commons.lang3.StringUtils.substringBeforeLast;
 
 /**
  * @ClassName: PluginManageService
@@ -118,6 +119,10 @@ public class PluginManageService {
     public static boolean isPluginEnabled(String fileName) {
         String jarName = substringBeforeLast(fileName, "-");
         PluginJarInfo pluginJarInfo = PluginManager.getInstance().getPlugin(jarName);
-        return pluginJarInfo == null || pluginJarInfo.getIsEnable();
+        if (pluginJarInfo == null) {
+            return false;
+        }
+        Boolean isEnable = pluginJarInfo.getIsEnable();
+        return isEnable != null && isEnable;
     }
 }

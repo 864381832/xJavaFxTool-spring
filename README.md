@@ -1,5 +1,5 @@
 #### 项目简介：
-**gitee地址：**[xJavaFxTool-spring](https://gitee.com/xwintop/xJavaFxTool-spring) 
+**gitee地址：**[xJavaFxTool-spring](https://gitee.com/xwintop/xJavaFxTool-spring)
 
 **GitHub地址：**[xJavaFxTool-spring](https://github.com/864381832/xJavaFxTool-spring)
 
@@ -39,7 +39,7 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 - 百度云链接：[https://pan.baidu.com/s/1RjlR58eu_GZC4iy46eGKLw](https://pan.baidu.com/s/1RjlR58eu_GZC4iy46eGKLw)  提取码：zerc
 - 腾讯微云链接：[https://share.weiyun.com/57irGHJ](https://share.weiyun.com/57irGHJ) 提取码：java
 
-支持插件开发，将插件jar包放至根目录libs下即可自动加载（插件开发示例见[开源项目xJavaFxPlugIn](https://gitee.com/xwintop/xJavaFxPlugIn)，目前刚刚搭建，后续会持续更新）；
+将插件jar包放至根目录libs下即可自动加载(插件开发示例见[开源项目xJavaFxTool-plugin](https://gitee.com/xwintop/xJavaFxTool-plugin)，后续准备将小工具拆分至各插件中按需加载，目前插件功能暂不完善，后续将各功能拆分至各模块按需加载，减小jar包的大小);
 
 #### 环境搭建说明：
 - 开发环境为jdk1.8，基于maven构建；
@@ -102,58 +102,7 @@ xJavaFxTool-spring为基于原有项目[xJavaFxTool](https://gitee.com/xwintop/x
 48. RandomGeneratorTool:随机数生成工具(使用[hutool](https://hutool.cn)工具)
 49. ClipboardHistoryTool:剪贴板历史工具
 
-传输工具目前支持功能如下：
-
-Receiver接收器：
-
-| 标题 | 配置类名 | 说明 |
-| ------------- | ------------- | ------------- |
-| Fs            | ReceiverConfigFs      | 从磁盘文件中读取消息    |
-| Ftp           | ReceiverConfigFtp     | 使用Ftp/Ftps协议中接收消息    |
-| Http          | ReceiverConfigHttp    | 使用http/https协议接收消息（支持拉取模式和提供Restfull接口方式） |
-| Ftp           | ReceiverConfigFtp     | 使用Ftp/Ftps协议接收消息   |
-| SFtp          | ReceiverConfigSftp    | 使用SFtp协议接收消息       |
-| Email         | ReceiverConfigEmail   | 使用Email协议接收消息          |
-| Jms           | ReceiverConfigJms     | 使用Jms协议接收消息        |
-| Kafka         | ReceiverConfigKafka   | 使用Kafka协议接收消息        |
-| IbmMq         | ReceiverConfigIbmMq   | 使用IbmMq协议接收消息        |
-| RabbitMq      | ReceiverConfigRabbitMq| 使用RabbitMq协议接收消息     |
-| RocketMq      | ReceiverConfigRocketMq| 使用RocketMq协议接收消息     |
-| ActiveMq      | ReceiverConfigActiveMq| 使用ActiveMq协议接收消息     |
-
-Filter处理器：
-
-| 标题          | 配置类名                   |  说明  |
-| --------      | -----                    | :----  |
-| Backup        | FilterConfigBackup        | 将消息备份到文件系统中   |
-| Compress      | FilterConfigCompress      | 将消息进行压缩操作       |
-| Decompress    | FilterConfigDecompress    | 将消息进行解压操作       |
-| EncryptDecrypt| FilterConfigEncryptDecrypt| 将消息进行加密解密操作   |
-| OracleSqlldr  | FilterConfigOracleSqlldr  | 将消息存入Oracle数据库   |
-| GroovyScript  | FilterConfigGroovyScript  | 将执行Groovy脚本   |
-| PythonScript  | FilterConfigPythonScript  | 将执行Python脚本   |
-| JavaScript    | FilterConfigJavaScript    | 将执行JavaScript脚本   |
-| LuaScript     | FilterConfigLuaScript     | 将执行Lua脚本   |
-
-Sender发送器：
-
-| 标题          | 配置类名               |  说明  |
-| --------      | -----                | :----  |
-| Fs            | SenderConfigFs      | 从磁盘文件中读取消息    |
-| Ftp           | SenderConfigFtp     | 使用Ftp/Ftps协议中发送消息    |
-| Http          | SenderConfigHttp    | 使用http/https协议发送消息  |
-| Ftp           | SenderConfigFtp     | 使用Ftp/Ftps协议发送消息   |
-| SFtp          | SenderConfigSftp    | 使用SFtp协议发送消息       |
-| Email         | SenderConfigEmail   | 使用Email中发送消息          |
-| Jms           | SenderConfigJms     | 使用Jms协议发送消息        |
-| Kafka         | SenderConfigKafka   | 使用Kafka协议发送消息        |
-| IbmMq         | SenderConfigIbmMq   | 使用IbmMq协议发送消息        |
-| RabbitMq      | SenderConfigRabbitMq| 使用RabbitMq协议发送消息     |
-| RocketMq      | SenderConfigRocketMq| 使用RocketMq协议发送消息     |
-| ActiveMq      | SenderConfigActiveMq| 使用ActiveMq协议发送消息     |
-
 项目开发中，以后会陆续添加新工具，欢迎大家参与其中，多提提意见，谢谢。
-
 
 #### 项目结构
 
@@ -234,30 +183,10 @@ xJavaFxTool-spring
 ![输入图片说明](images/加密解密.gif "加密解密.png")
 ![输入图片说明](images/正则表达式生成工具.gif "正则表达式生成工具.png")
 ![输入图片说明](images/二维码生成工具.gif "二维码生成工具.png")
-![输入图片说明](images/Socket调试工具.gif "Socket调试工具.png")
-![输入图片说明](images/json格式化编辑工具.gif "json格式化编辑工具.png")
-![输入图片说明](images/Http调试工具.gif "Http调试工具.png")
 ![输入图片说明](images/随机数生成工具.gif "随机数生成工具.png")
-![输入图片说明](images/字符串转换.gif "字符串转换.png")
 ![输入图片说明](images/Redis连接工具.gif "Redis连接工具.png")
-![输入图片说明](images/Mq调试工具.gif "Mq调试工具.png")
-![输入图片说明](images/zookeeper工具.png "zookeeper工具.png")
-![输入图片说明](images/编码转换.png "编码转换.png")
-![输入图片说明](images/转义字符.gif "转义字符.png")
-![输入图片说明](images/文件列表生成器.gif "文件列表生成器.png")
-![输入图片说明](images/文件复制.png "文件复制.png")
-![输入图片说明](images/Time转换.gif "Time转换.gif")
-![输入图片说明](images/图标生成工具.gif "图标生成工具.png")
-![输入图片说明](images/Ftp服务器.gif "Ftp服务器.png")
 ![输入图片说明](images/图片压缩工具.gif "图片压缩工具.png")
-![输入图片说明](images/Ftp客户端调试工具.gif "Ftp客户端调试工具.png")
-![输入图片说明](images/Pdf转换工具.gif "Pdf转换工具.png")
 ![输入图片说明](images/图片转码工具.gif "图片转码工具.png")
-![输入图片说明](images/Cmd调试工具.png "Cmd调试工具.png")
 ![输入图片说明](images/短信群发工具.gif "短信群发工具.png")
 ![输入图片说明](images/文件重命名工具.gif "文件重命名工具.png")
-![输入图片说明](images/Json转换工具.gif "Json转换工具.png")
-![输入图片说明](images/系统信息.gif "系统信息.gif")
-![输入图片说明](images/Excel拆分工具.gif "Excel拆分工具.png")
-![输入图片说明](images/文件编码检测工具.gif "文件编码检测工具.png")
-![输入图片说明](images/端口扫描工具.gif "端口扫描工具.png")
+![输入图片说明](images/成语字典工具.gif "成语字典工具.png")

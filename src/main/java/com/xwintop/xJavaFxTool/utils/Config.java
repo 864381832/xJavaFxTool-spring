@@ -12,7 +12,7 @@ import java.util.Locale;
 public class Config {
 	public static Locale defaultLocale = Locale.getDefault();// 设置系统语言
 
-	public static final String xJavaFxToolVersions = "V0.1.5-beta1";// xJavaFxTool版本信息
+	public static final String xJavaFxToolVersions = "V0.2.0";// xJavaFxTool版本信息
 	public static final int xJavaFxToolVersionsInteger = 6;// xJavaFxTool更新信息
 
 	public static final String CONFIG_FILE_NAME = "systemConfigure.properties";
